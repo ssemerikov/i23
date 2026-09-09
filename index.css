@@ -1,0 +1,40 @@
+/* Стилі для всього документа */
+body {
+    background-color: rgb(237, 223, 253);
+}
+
+/* Стилі для таблиці */
+table {
+    border: 5px solid rgb(44, 114, 26);
+    border-collapse: collapse;
+}
+
+table th,
+table td {
+    border: 1px solid rgb(44, 114, 26);
+    padding: 5px;
+}
+
+/* Класи для виділення рядків та комірок */
+.highlight-row {
+    background-color: rgb(44, 114, 26);
+    color: white;
+}
+
+.highlight-cell {
+    background-color: rgb(114, 25, 71);
+    color: white;
+}
+
+/* Стилі для зображення */
+img {
+    width: 75%;
+    height: auto;
+}
+
+/* Стилі для форми зворотного зв'язку */
+.feedback-form {
+    background-color: rgb(44, 114, 26);
+    color: white;
+    padding: 20px;
+}

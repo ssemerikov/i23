@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+	<meta charset="UTF-8">
+	<title>Таблична розмітка</title>
+	<style>
+		html, body {
+			margin: 0;
+			height: 100%;
+		}
+
+		body {
+			display: flex;
+			align-items: flex-start;
+			justify-content: flex-start;
+			font-family: Arial, sans-serif;
+		}
+
+		table {
+			width: 134px;
+			height: 173px;
+			border: 2px solid #555;
+			border-collapse: collapse;
+			table-layout: fixed;
+		}
+
+		td {
+			padding: 0;
+			border: 1px solid #555;
+			font-size: 13px;
+		}
+
+		.top, .bottom {
+			height: 23px;
+			background: #0868ed;
+			color: white;
+			text-align: left;
+			vertical-align: middle;
+			padding-left: 10px;
+			font-weight: bold;
+		}
+
+		.side {
+			width: 38px;
+			background: #ffcc0a;
+			text-align: center;
+			vertical-align: middle;
+		}
+
+		.middle {
+			width: 58px;
+			text-align: center;
+			vertical-align: middle;
+		}
+	</style>
+</head>
+<body>
+	<table aria-label="Таблиця">
+		<tr>
+			<td class="top" colspan="3">1</td>
+		</tr>
+		<tr>
+			<td class="side">5</td>
+			<td class="middle">4</td>
+			<td class="side">2</td>
+		</tr>
+		<tr>
+			<td class="bottom" colspan="3">3</td>
+		</tr>
+	</table>
+</body>
+</html>

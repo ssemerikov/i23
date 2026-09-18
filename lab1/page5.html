@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="uk">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Форма користувача | Лабораторна робота №1</title>
+	<link rel="stylesheet" href="../gener_green.css">
+</head>
+<body>
+	<h1>Форма користувача</h1>
+	<form action="#" method="post">
+		<p>
+			<label for="user_name">Прізвище, ім'я, по батькові:</label>
+			<input type="text" id="user_name" name="user_name" required>
+		</p>
+		<p>
+			<label for="user_email">Е-mail:</label>
+			<input type="email" id="user_email" name="user_email">
+		</p>
+		<p>
+			<label for="user_birthdate">Дата народження:</label>
+			<input type="date" id="user_birthdate" name="user_birthdate" required>
+		</p>
+		<fieldset>
+			<legend>Стать:</legend>
+			<label>
+				<input type="radio" name="user_sex" value="Чоловіча" required>
+				Чоловіча
+			</label>
+			<label>
+				<input type="radio" name="user_sex" value="Жіноча">
+				Жіноча
+			</label>
+		</fieldset>
+		<p><button type="submit">Надіслати</button></p>
+	</form>
+</body>
+</html>

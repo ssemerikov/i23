@@ -1,29 +1,221 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="uk" data-bs-theme="light">
 <head>
     <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Лабораторна робота №1 | Портфоліо студента</title>
-    <link rel="stylesheet" href="../gener_green.css">
+    <!--<link rel="stylesheet" href="../gener_green.css">-->
+    <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>-->
+    <script src="../bootstrap/bootstrap.bundle.min.js"></script>
+    <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">-->
+    <link href="../bootstrap/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <header>
-        <h1>Лабораторна робота №1</h1>
-        <p>Основи HTML та CSS</p>
+<body class="min-vh-100 bg-light text-dark">
+    <nav class="navbar navbar-expand-lg bg-primary navbar-dark sticky-top shadow-sm" aria-label="Головна навігація">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#top">Bootstrap Lab</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Відкрити меню">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#content">Контент</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#forms">Форми</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#feedback">Feedback</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header id="top" class="bg-white border-bottom px-3 py-5 text-center">
+        <div class="container">
+            <h1 class="display-5 fw-bold">Лабораторна робота №1</h1>
+            <p class="lead mb-0 text-secondary">Основи HTML та CSS з Bootstrap-компонентами</p>
+        </div>
     </header>
-    <main>
-        <section class="lab-content">
-            <h2>Завдання 1</h2>
-            <p><a href="page1.html" target="_blank">Засобами HTML та CSS створіть веб-сторінку заданого вигляду, використовуючи Розмітку за допомогою таблиці</a></p>
-            <h2>Завдання 2</h2>
-            <p><a href="page2.html" target="_blank">Засобами HTML та CSS створіть веб-сторінку заданого вигляду, використовуючи Розмітку за допомогою плаваючих блоків</a></p>
-            <h2>Завдання 3</h2>
-            <p><a href="page3.html" target="_blank">Засобами HTML та CSS створіть веб-сторінку заданого вигляду, використовуючи Розмітку за допомогою inline -блоків</a></p>
-            <h2>Завдання 4</h2>
-            <p><a href="page4.html" target="_blank">Створіть нову сторінку, яка містить малюнок </a></p>
-            <h2>Завдання 5</h2>
-            <p><a href="page5.html" target="_blank">Створіть нову сторінку, яка містить форму</a></p>
+
+    <main class="container py-4 py-md-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#top">Головна</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Компоненти</li>
+            </ol>
+        </nav>
+
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+            <strong>Навчальна сторінка:</strong> тут зібрані приклади основних компонентів Bootstrap.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Закрити"></button>
+        </div>
+
+        <section id="content" class="mb-5">
+            <h2 class="mb-4">Контент</h2>
+            <ul class="nav nav-tabs mb-4" id="contentTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="cards-tab" data-bs-toggle="tab" data-bs-target="#cards-pane" type="button" role="tab" aria-controls="cards-pane" aria-selected="true">Картки</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="list-tab" data-bs-toggle="tab" data-bs-target="#list-pane" type="button" role="tab" aria-controls="list-pane" aria-selected="false">Список</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="accordion-tab" data-bs-toggle="tab" data-bs-target="#accordion-pane" type="button" role="tab" aria-controls="accordion-pane" aria-selected="false">Accordion</button>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="contentTabsContent">
+                <div class="tab-pane fade show active" id="cards-pane" role="tabpanel" aria-labelledby="cards-tab" tabindex="0">
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-4">
+                            <article class="card h-100 shadow-sm">
+                                <div class="card-body d-flex flex-column">
+                                    <h3 class="card-title h5">Завдання 1</h3>
+                                    <p class="card-text">Розмітка веб-сторінки за допомогою таблиці.</p>
+                                    <a class="btn btn-primary mt-auto" href="page1.html" target="_blank">Переглянути</a>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <article class="card h-100 shadow-sm">
+                                <div class="card-body d-flex flex-column">
+                                    <h3 class="card-title h5">Завдання 2</h3>
+                                    <p class="card-text">Розмітка за допомогою плаваючих блоків.</p>
+                                    <a class="btn btn-primary mt-auto" href="page2.html" target="_blank">Переглянути</a>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <article class="card h-100 shadow-sm">
+                                <div class="card-body d-flex flex-column">
+                                    <h3 class="card-title h5">Завдання 3</h3>
+                                    <p class="card-text">Розмітка за допомогою inline-блоків.</p>
+                                    <a class="btn btn-primary mt-auto" href="page3.html" target="_blank">Переглянути</a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="list-pane" role="tabpanel" aria-labelledby="list-tab" tabindex="0">
+                    <div class="list-group">
+                        <a href="page1.html" target="_blank" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Завдання 1 <span class="badge text-bg-primary rounded-pill">HTML</span></a>
+                        <a href="page2.html" target="_blank" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Завдання 2 <span class="badge text-bg-primary rounded-pill">CSS</span></a>
+                        <a href="page3.html" target="_blank" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Завдання 3 <span class="badge text-bg-primary rounded-pill">Layout</span></a>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="accordion-pane" role="tabpanel" aria-labelledby="accordion-tab" tabindex="0">
+                    <div class="accordion" id="tasksAccordion">
+                        <div class="accordion-item">
+                            <h3 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#taskOne" aria-expanded="true" aria-controls="taskOne">Завдання 4: малюнок</button></h3>
+                            <div id="taskOne" class="accordion-collapse collapse show" data-bs-parent="#tasksAccordion"><div class="accordion-body">Сторінка містить зображення та приклад його розміщення.</div></div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#taskTwo" aria-expanded="false" aria-controls="taskTwo">Завдання 5: форма</button></h3>
+                            <div id="taskTwo" class="accordion-collapse collapse" data-bs-parent="#tasksAccordion"><div class="accordion-body">Сторінка містить форму для введення даних користувача.</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="labCarousel" class="carousel slide mt-5 shadow-sm" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#labCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Слайд 1"></button>
+                    <button type="button" data-bs-target="#labCarousel" data-bs-slide-to="1" aria-label="Слайд 2"></button>
+                    <button type="button" data-bs-target="#labCarousel" data-bs-slide-to="2" aria-label="Слайд 3"></button>
+                </div>
+                <div class="carousel-inner rounded">
+                    <div class="carousel-item active"><div class="bg-primary text-white p-5 text-center"><h3>HTML</h3><p class="mb-0">Структура сторінки</p></div></div>
+                    <div class="carousel-item"><div class="bg-success text-white p-5 text-center"><h3>CSS</h3><p class="mb-0">Візуальне оформлення</p></div></div>
+                    <div class="carousel-item"><div class="bg-dark text-white p-5 text-center"><h3>Bootstrap</h3><p class="mb-0">Готові адаптивні компоненти</p></div></div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#labCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Попередній</span></button>
+                <button class="carousel-control-next" type="button" data-bs-target="#labCarousel" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Наступний</span></button>
+            </div>
+        </section>
+
+        <section id="forms" class="mb-5">
+            <h2 class="mb-4">Форми та введення</h2>
+            <form class="row g-3 needs-validation" novalidate>
+                <div class="col-md-6">
+                    <label for="studentName" class="form-label">Ім'я</label>
+                    <input type="text" class="form-control" id="studentName" required>
+                    <div class="invalid-feedback">Введіть ім'я.</div>
+                </div>
+                <div class="col-md-6">
+                    <label for="studentEmail" class="form-label">Email</label>
+                    <div class="input-group has-validation">
+                        <span class="input-group-text">@</span>
+                        <input type="email" class="form-control" id="studentEmail" placeholder="name@example.com" required>
+                        <div class="invalid-feedback">Введіть коректний email.</div>
+                    </div>
+                </div>
+                <div class="col-12 form-floating">
+                    <textarea class="form-control" placeholder="Ваш коментар" id="comment" style="height: 100px"></textarea>
+                    <label for="comment">Коментар</label>
+                </div>
+                <div class="col-md-6">
+                    <label for="topic" class="form-label">Тема</label>
+                    <select class="form-select" id="topic" required>
+                        <option selected disabled value="">Оберіть тему...</option>
+                        <option>HTML</option>
+                        <option>CSS</option>
+                        <option>Bootstrap</option>
+                    </select>
+                    <div class="invalid-feedback">Оберіть тему.</div>
+                </div>
+                <div class="col-md-6 d-flex align-items-center gap-3 pt-4">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="notifications">
+                        <label class="form-check-label" for="notifications">Сповіщення</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="agreement" required>
+                        <label class="form-check-label" for="agreement">Погоджуюсь</label>
+                        <div class="invalid-feedback">Потрібна згода.</div>
+                    </div>
+                </div>
+                <div class="col-12"><button class="btn btn-primary" type="submit">Надіслати форму</button></div>
+            </form>
+            <nav class="mt-4" aria-label="Пагінація завдань">
+                <ul class="pagination justify-content-center"><li class="page-item disabled"><span class="page-link">Назад</span></li><li class="page-item active"><a class="page-link" href="#forms">1</a></li><li class="page-item"><a class="page-link" href="#content">2</a></li><li class="page-item"><a class="page-link" href="#feedback">3</a></li><li class="page-item"><a class="page-link" href="#content">Далі</a></li></ul>
+            </nav>
+        </section>
+
+        <section id="feedback" class="pb-4">
+            <h2 class="mb-4">Feedback</h2>
+            <div class="d-flex flex-wrap gap-2">
+                <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Відкрити modal</button>
+                <button class="btn btn-outline-success" type="button" data-bs-toggle="toast" data-bs-target="#exampleToast">Показати toast</button>
+                <button class="btn btn-outline-secondary" type="button" data-bs-toggle="tooltip" data-bs-title="Підказка Bootstrap">Наведіть для tooltip</button>
+                <button class="btn btn-outline-info" type="button" data-bs-toggle="popover" data-bs-title="Popover" data-bs-content="Додаткова інформація про компонент.">Показати popover</button>
+            </div>
         </section>
     </main>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h2 class="modal-title fs-5" id="exampleModalLabel">Модальне вікно</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрити"></button></div><div class="modal-body">Це приклад Bootstrap Modal.</div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрити</button></div></div></div>
+    </div>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="exampleToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header"><strong class="me-auto">Bootstrap Lab</strong><small>щойно</small><button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Закрити"></button></div>
+            <div class="toast-body">Toast успішно показано.</div>
+        </div>
+    </div>
+
+    <script>
+        (() => {
+            'use strict';
+            document.querySelectorAll('.needs-validation').forEach((form) => {
+                form.addEventListener('submit', (event) => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                });
+            });
+            document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach((element) => new bootstrap.Tooltip(element));
+            document.querySelectorAll('[data-bs-toggle="popover"]').forEach((element) => new bootstrap.Popover(element));
+            document.querySelector('[data-bs-toggle="toast"]').addEventListener('click', () => bootstrap.Toast.getOrCreateInstance(document.querySelector('#exampleToast')).show());
+        })();
+    </script>
 </body>
 </html>

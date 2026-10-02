@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тут буде щось виконуватись</title>
+    <link rel="stylesheet" href="../gener_green.css">
+</head>
+<body class="python home">
+    <h1>Тут буде щось виконуватись</h1>
+    <p>Це просто тестовий файл для перевірки виконання JavaScript.</p>
+    <p id="browser-version">Тут має бути версія веб-браузера.</p>
+
+    <!--
+        Створити форму з полем для введення числа та кнопкою. 
+        При натисканні на кнопку викликати функцію, 
+        яка виведе у div елементі стільки рядків, скільки було введено у полі.
+    -->
+
+<script>
+    let p = document.getElementById("browser-version");
+    if (p) {
+        p.textContent = "Версія веб-браузера: " + navigator.userAgent;
+    }
+
+    function printLines(count) {
+        let text = "";
+        for (let i = 0; i < count; i++) {
+            text += "Рядок " + (i + 1) + "<br>";
+        }
+        document.getElementById("our_text").innerHTML = text;
+    }
+
+    function handleFormSubmit(event) {
+        //console.log("event", event);
+        // Скасовуємо відправку формы (щоб сторінка не перезавантажувалася)
+        event.preventDefault(); 
+        
+        // Зчитуємо значення з поля введення
+        let countInput = document.getElementById("line-count");
+        let count = countInput.value;
+
+        printLines(count);
+    }
+</script>
+
+<form id="line-form" onsubmit="handleFormSubmit(event)">
+    <label for="line-count">Кількість рядків:</label>
+    <input type="number" id="line-count" min="0" step="1" required>
+    <button type="submit">Вивести рядки</button>
+</form>
+
+<div id="our_text"></div>
+
+</body>
+</html>

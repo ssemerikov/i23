@@ -103,6 +103,11 @@
             border-top: 1px solid rgba(0,0,0,0.08);
         }
 
+        .badge-icon {
+            width: 40px;
+            height: 40px;
+        }
+
         .stat-num {
             font-size: 2rem;
             font-weight: 800;
@@ -267,10 +272,22 @@
 
         .video-thumbnail {
             position: relative;
+            display: block;
+            width: 100%;
+            padding: 0;
+            border: 0;
+            background: transparent;
+            color: inherit;
+            text-align: left;
             border-radius: 0.75rem;
             overflow: hidden;
             margin-bottom: 1rem;
             cursor: pointer;
+        }
+
+        .video-thumbnail:focus-visible {
+            outline: 3px solid var(--primary-color);
+            outline-offset: 3px;
         }
 
         .video-thumbnail img {

@@ -17,32 +17,7 @@
         яка виведе у div елементі стільки рядків, скільки було введено у полі.
     -->
 
-<script>
-    let p = document.getElementById("browser-version");
-    if (p) {
-        p.textContent = "Версія веб-браузера: " + navigator.userAgent;
-    }
-
-    function printLines(count) {
-        let text = "";
-        for (let i = 0; i < count; i++) {
-            text += "Рядок " + (i + 1) + "<br>";
-        }
-        document.getElementById("our_text").innerHTML = text;
-    }
-
-    function handleFormSubmit(event) {
-        //console.log("event", event);
-        // Скасовуємо відправку формы (щоб сторінка не перезавантажувалася)
-        event.preventDefault(); 
-        
-        // Зчитуємо значення з поля введення
-        let countInput = document.getElementById("line-count");
-        let count = countInput.value;
-
-        printLines(count);
-    }
-</script>
+<script src="script.js"></script>
 
 <form id="line-form" onsubmit="handleFormSubmit(event)">
     <label for="line-count">Кількість рядків:</label>

@@ -7,9 +7,9 @@ lab3-hmi/*.jsonl
 lab3-hmi/*.ndjson
 
 # Моделі, збережені ноутбуком через gensim (KeyedVectors.save())
-lab3-hmi/*.kv
-lab3-hmi/*.kv.vectors.npy
-lab3-hmi/*.npy
+lab4-hmi/*.kv
+lab4-hmi/*.kv.vectors.npy
+lab4-hmi/*.npy
 
 # Ноутбук із результатами навчання
 *.ipynb_checkpoints/

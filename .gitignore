@@ -1,8 +1,9 @@
 # Модель word2vec та її похідні — це вхідні дані й результат конвертації,
-# а не код. Файли завеликі для репозиторію (1.6 ГБ модель, 1.7 ГБ JSONL).
+# а не код. Великі файли ігноруються, крім JSONL-моделі, яку зберігаємо через Git LFS.
 lab3-hmi/ubercorpus.cased.tokenized.word2vec.300d
 lab3-hmi/ubercorpus.cased.tokenized.word2vec.300d.bz2
 lab3-hmi/*.jsonl
+!lab3-hmi/ubercorpus.cased.tokenized.word2vec.300d.jsonl
 lab3-hmi/*.ndjson
 
 # Моделі, збережені ноутбуком через gensim (KeyedVectors.save())

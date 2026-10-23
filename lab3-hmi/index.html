@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вимірювання часу завантаження та обсягу пам'яті | Лабораторна робота №3 (HMI)</title>
+    <link rel="stylesheet" href="../bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container py-4">
+
+        <header class="mb-4">
+            <h1 class="h3">Вимірювання часу завантаження та обсягу пам'яті</h1>
+            <p class="text-muted mb-0">
+                Лабораторна робота №3 (HMI) · word2vec → JSONL · група І-23
+            </p>
+        </header>
+
+        <section class="card mb-4">
+            <div class="card-body">
+                <h2 class="h5 card-title">1. Завантаження файлу</h2>
+                <p class="text-muted">
+                    Оберіть сконвертований файл (<code>.jsonl</code>) або перетягніть його
+                    у цю область. Файл не завантажується на сервер — він читається
+                    локально у вашому браузері.
+                </p>
+
+                <div id="dropZone" class="drop-zone mb-3" tabindex="0"
+                     role="button" aria-label="Вибрати або перетягнути файл">
+                    <p class="mb-1">Перетягніть файл сюди</p>
+                    <p class="mb-0"><label for="fileInput" class="file-label">або натисніть, щоб обрати файл</label></p>
+                    <input type="file" id="fileInput" accept=".jsonl,.ndjson,.json" class="visually-hidden">
+                </div>
+
+                <p id="fileInfo" class="mb-0" aria-live="polite"></p>
+            </div>
+        </section>
+
+        <section class="card mb-4">
+            <div class="card-body">
+                <h2 class="h5 card-title">2. Режим обробки</h2>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="mode" id="modeMeasure"
+                           value="measure" checked>
+                    <label class="form-check-label" for="modeMeasure">
+                        Лише виміряти — розібрати файл, не утримуючи вектори в пам'яті
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="mode" id="modeLoad"
+                           value="load">
+                    <label class="form-check-label" for="modeLoad">
+                        Завантажити в пам'ять — утримувати всі вектори (потрібно ~735 МБ для
+                        повного словника)
+                    </label>
+                </div>
+                <p id="modeHint" class="text-muted small mt-2 mb-0"></p>
+            </div>
+        </section>
+
+        <section class="card mb-4">
+            <div class="card-body">
+                <h2 class="h5 card-title">3. Вимірювання</h2>
+                <p id="status" class="status-text mb-0" aria-live="polite">Очікування файлу…</p>
+            </div>
+        </section>
+
+        <section class="card mb-4">
+            <div class="card-body">
+                <h2 class="h5 card-title">4. Результати</h2>
+
+                <table class="table table-sm results-table mb-0">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Кількість слів</th>
+                            <td id="resWords" class="value">—</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Розмірність вектора</th>
+                            <td id="resDim" class="value">—</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Розмір файлу</th>
+                            <td id="resFileSize" class="value">—</td>
+                        </tr>
+                        <tr class="section-row">
+                            <th scope="row" colspan="2">Час</th>
+                        </tr>
+                        <tr>
+                            <th scope="row">Час читання файлу</th>
+                            <td id="resReadTime" class="value">—</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Час розбору JSON</th>
+                            <td id="resParseTime" class="value">—</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Загальний час</th>
+                            <td id="resTotalTime" class="value">—</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Швидкість обробки</th>
+                            <td id="resThroughput" class="value">—</td>
+                        </tr>
+                        <tr class="section-row">
+                            <th scope="row" colspan="2">Пам'ять</th>
+                        </tr>
+                        <tr>
+                            <th scope="row">Використана пам'ять JS (до → після)</th>
+                            <td id="resHeap" class="value">—</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Приріст пам'яті</th>
+                            <td id="resHeapDelta" class="value">—</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Обчислений обсяг структури</th>
+                            <td id="resComputed" class="value">—</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Обчислений обсяг у пам'яті</th>
+                            <td id="resRetained" class="value">—</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p id="memNote" class="note mt-3 mb-0"></p>
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="card-body">
+                <h2 class="h5 card-title">Як створити файл</h2>
+                <p class="mb-2">Конвертер лежить поруч зі сторінкою:</p>
+                <pre class="mb-2"><code>python3 convert_to_json.py \
+    --input ubercorpus.cased.tokenized.word2vec.300d \
+    --output model.jsonl --limit 200000</code></pre>
+                <p class="text-muted small mb-0">
+                    Формат — JSONL: перший рядок містить метадані, далі по одному запису
+                    на слово. Такий формат читається браузером потоково, бо повний JSON
+                    цієї моделі (~1.7 ГБ) перевищує максимальну довжину рядка у V8.
+                </p>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="code.js"></script>
+</body>
+</html>

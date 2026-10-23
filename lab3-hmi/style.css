@@ -1,0 +1,123 @@
+/*
+    Стилі сторінки вимірювання часу завантаження та обсягу пам'яті.
+    Лабораторна робота №3 (HMI) · група І-23.
+
+    Bootstrap береться з локальної копії (../bootstrap/bootstrap.min.css),
+    тому цей файл не залежить від зовнішніх CDN.
+*/
+
+:root {
+    --primary: #3157d5;
+    --primary-dark: #24419e;
+    --border: #d8dee9;
+    --muted: #5a6472;
+    --surface: #f6f8fb;
+    --accent: #31d599;
+    --warning: #b8860b;
+}
+
+body {
+    background-color: var(--surface);
+}
+
+/* Заголовок сторінки */
+header h1 {
+    color: var(--primary-dark);
+}
+
+/* Зона завантаження файлу */
+.drop-zone {
+    border: 2px dashed var(--border);
+    border-radius: 0.5rem;
+    background-color: #fff;
+    padding: 2.5rem 1rem;
+    text-align: center;
+    color: var(--muted);
+    cursor: pointer;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.drop-zone:hover,
+.drop-zone:focus {
+    border-color: var(--primary);
+    outline: none;
+}
+
+.drop-zone.drag-over {
+    border-color: var(--accent);
+    background-color: #eefaf5;
+}
+
+.file-label {
+    color: var(--primary);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Рядок стану під час обробки */
+.status-text {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--primary-dark);
+    min-height: 1.5rem;
+}
+
+/* Таблиця результатів */
+.results-table th {
+    width: 55%;
+    font-weight: 500;
+    color: var(--muted);
+}
+
+.results-table .value {
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    color: var(--primary-dark);
+}
+
+/* Рядок-роздільник секцій таблиці */
+.section-row th {
+    background-color: var(--surface);
+    color: var(--primary);
+    font-weight: 600;
+    border-top: 2px solid var(--border);
+}
+
+/* Примітка під таблицею */
+.note {
+    font-size: 0.875rem;
+    color: var(--muted);
+    line-height: 1.5;
+}
+
+/* Блок з командою запуску конвертера */
+pre {
+    background-color: #fff;
+    border: 1px solid var(--border);
+    border-radius: 0.375rem;
+    padding: 0.75rem 1rem;
+    color: var(--primary-dark);
+    /* На вузькому екрані команда не вміщається — прокручуємо її, а не обрізаємо. */
+    overflow-x: auto;
+}
+
+code {
+    color: var(--primary-dark);
+}
+
+/* На вузьких екранах таблиця лишається читабельною */
+@media (max-width: 576px) {
+    .results-table th {
+        width: 50%;
+    }
+
+    .drop-zone {
+        padding: 1.5rem 0.5rem;
+    }
+
+    /* Команду краще переносити, ніж ховати за горизонтальною прокруткою. */
+    pre {
+        white-space: pre-wrap;
+        word-break: break-all;
+    }
+}

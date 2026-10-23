@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог курсів | Polyglot Academy</title>
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter & Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top" aria-label="Основна навігація">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span>Polyglot Academy</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Відкрити меню">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Головна</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="courses.html">Курси</a></li>
+                    <li class="nav-item"><a class="nav-link" href="teachers.html">Викладачі</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reviews.html">Відгуки</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#pricing">Тарифи</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#faq">FAQ</a></li>
+                    <li class="nav-item ms-lg-2">
+                        <button type="button" class="btn btn-primary-custom btn-sm text-white" onclick="openEnrollModal('Загальний запис')">Пробний урок</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Subpage Hero Section -->
+    <header class="subpage-hero">
+        <div class="container">
+            <nav aria-label="Хлібні крихти" class="breadcrumb-custom">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="index.html"><i class="fa-solid fa-house me-1"></i>Головна</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Курси</li>
+                </ol>
+            </nav>
+            <h1 class="display-4 fw-extrabold mb-3">Каталог навчальних програм</h1>
+            <p class="lead text-secondary mb-0" style="max-width: 780px;">
+                Оберіть курс для ваших цілей: від перших кроків з нуля до вільного професійного володіння та підготовки до міжнародних сертифікацій.
+            </p>
+        </div>
+    </header>
+
+    <main class="py-5">
+        <div class="container">
+            <!-- Filter & Search Controls -->
+            <div class="row align-items-center mb-4 gy-3">
+                <div class="col-lg-8">
+                    <div class="filter-btn-group mb-0" role="toolbar" aria-label="Фільтр курсів за категоріями">
+                        <button type="button" class="filter-pill active" onclick="applyCourseFilter('all', this)">Всі курси</button>
+                        <button type="button" class="filter-pill" onclick="applyCourseFilter('en', this)">🇬🇧 Англійська</button>
+                        <button type="button" class="filter-pill" onclick="applyCourseFilter('de', this)">🇩🇪 Німецька</button>
+                        <button type="button" class="filter-pill" onclick="applyCourseFilter('es', this)">🇪🇸 Іспанська</button>
+                        <button type="button" class="filter-pill" onclick="applyCourseFilter('fr', this)">🇫🇷 Французька</button>
+                        <button type="button" class="filter-pill" onclick="applyCourseFilter('pl', this)">🇵🇱 Польська</button>
+                        <button type="button" class="filter-pill" onclick="applyCourseFilter('exam', this)">🎓 Іспити (IELTS/TestDaF)</button>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="input-group">
+                        <span class="input-group-text bg-white border-end-0"><i class="fa-solid fa-magnifying-glass text-muted"></i></span>
+                        <input type="text" id="courseSearch" class="form-control border-start-0" placeholder="Пошук курсу за назвою..." onkeyup="searchCourses()">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Courses Grid -->
+            <div class="row g-4" id="coursesContainer">
+                <!-- Course 1 -->
+                <div class="col-md-6 col-lg-4 course-card-wrapper" data-category="en" data-title="general english розмовна англійська">
+                    <article class="card h-100 course-card shadow-sm border-0 rounded-4 overflow-hidden">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=600&q=80"
+                                 class="card-img-top" alt="Розмовна англійська" style="height: 200px; object-fit: cover;">
+                            <span class="badge bg-primary position-absolute top-0 end-0 m-3 rounded-pill px-3 py-2">A1 – B2</span>
+                        </div>
+                        <div class="card-body p-4 d-flex flex-column">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <span class="teacher-badge-lang">🇬🇧 Англійська</span>
+                                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>3 міс. / рівень</span>
+                            </div>
+                            <h2 class="h5 fw-bold mb-3">General English: Розмовний курс</h2>
+                            <p class="text-secondary small mb-3 flex-grow-1">
+                                Подолання мовного бар'єру, постановка правильної вимови, активний словниковий запас для життя та подорожей.
+                            </p>
+
+                            <!-- Syllabus Preview Accordion -->
+                            <div class="accordion syllabus-accordion mb-3" id="accCourse1">
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="headingOne1">
+                                        <button class="accordion-button collapsed py-2 px-3 small" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne1">
+                                            Програма курсу (силабус)
+                                        </button>
+                                    </h3>
+                                    <div id="collapseOne1" class="accordion-collapse collapse" data-bs-parent="#accCourse1">
+                                        <div class="accordion-body small text-muted p-3">
+                                            <ul class="mb-0 ps-3">
+                                                <li>Модуль 1: Говоріння у повсякденних ситуаціях</li>
+                                                <li>Модуль 2: Граматика без заучування через контекст</li>
+                                                <li>Модуль 3: Сприйняття акцентів на слух та аудіювання</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center pt-3 border-top mt-auto">
+                                <div>
+                                    <span class="text-muted small d-block">Вартість від</span>
+                                    <span class="fw-bold fs-5 text-primary">2 400 ₴</span> <span class="small text-muted">/ міс</span>
+                                </div>
+                                <button type="button" class="btn btn-primary-custom btn-sm" onclick="openEnrollModal('General English')">
+                                    Записатися
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Course 2 -->
+                <div class="col-md-6 col-lg-4 course-card-wrapper" data-category="en exam" data-title="ielts academic general toefl">
+                    <article class="card h-100 course-card shadow-sm border-0 rounded-4 overflow-hidden">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80"
+                                 class="card-img-top" alt="Підготовка до IELTS" style="height: 200px; object-fit: cover;">
+                            <span class="badge bg-danger position-absolute top-0 end-0 m-3 rounded-pill px-3 py-2">B2 – C1</span>
+                        </div>
+                        <div class="card-body p-4 d-flex flex-column">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <span class="teacher-badge-lang">🎓 Іспити</span>
+                                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>2.5 міс. (інтенсив)</span>
+                            </div>
+                            <h2 class="h5 fw-bold mb-3">Підготовка до IELTS / TOEFL</h2>
+                            <p class="text-secondary small mb-3 flex-grow-1">
+                                Стратегії виконання тестів, написання есе на 7.5+, розбір пасток в аудіюванні та повні пробні симуляції іспиту.
+                            </p>
+
+                            <div class="accordion syllabus-accordion mb-3" id="accCourse2">
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="headingTwo2">
+                                        <button class="accordion-button collapsed py-2 px-3 small" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo2">
+                                            Програма курсу (силабус)
+                                        </button>
+                                    </h3>
+                                    <div id="collapseTwo2" class="accordion-collapse collapse" data-bs-parent="#accCourse2">
+                                        <div class="accordion-body small text-muted p-3">
+                                            <ul class="mb-0 ps-3">
+                                                <li>Модуль 1: Academic Writing Task 1 & Task 2</li>
+                                                <li>Модуль 2: Speaking — розбір критеріїв екзаменатора</li>
+                                                <li>Модуль 3: 4 повні мок-тести з таймінгом</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center pt-3 border-top mt-auto">
+                                <div>
+                                    <span class="text-muted small d-block">Вартість від</span>
+                                    <span class="fw-bold fs-5 text-primary">3 600 ₴</span> <span class="small text-muted">/ міс</span>
+                                </div>
+                                <button type="button" class="btn btn-primary-custom btn-sm" onclick="openEnrollModal('Підготовка до IELTS/TOEFL')">
+                                    Записатися
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Course 3 -->
+                <div class="col-md-6 col-lg-4 course-card-wrapper" data-category="en" data-title="business english ділова англійська кар'єра">
+                    <article class="card h-100 course-card shadow-sm border-0 rounded-4 overflow-hidden">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80"
+                                 class="card-img-top" alt="Ділова англійська" style="height: 200px; object-fit: cover;">
+                            <span class="badge bg-success position-absolute top-0 end-0 m-3 rounded-pill px-3 py-2">B1 – C1</span>
+                        </div>
+                        <div class="card-body p-4 d-flex flex-column">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <span class="teacher-badge-lang">💼 Бізнес</span>
+                                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>2 міс.</span>
+                            </div>
+                            <h2 class="h5 fw-bold mb-3">Business & Career English</h2>
+                            <p class="text-secondary small mb-3 flex-grow-1">
+                                Ведення переговорів, публічні виступи англійською, підготовка до співбесід в IT та міжнародних корпораціях.
+                            </p>
+
+                            <div class="accordion syllabus-accordion mb-3" id="accCourse3">
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="headingThree3">
+                                        <button class="accordion-button collapsed py-2 px-3 small" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree3">
+                                            Програма курсу (силабус)
+                                        </button>
+                                    </h3>
+                                    <div id="collapseThree3" class="accordion-collapse collapse" data-bs-parent="#accCourse3">
+                                        <div class="accordion-body small text-muted p-3">
+                                            <ul class="mb-0 ps-3">
+                                                <li>Модуль 1: Ділове листування та резюме LinkedIn</li>
+                                                <li>Модуль 2: Проведення мітингів та переговорів</li>
+                                                <li>Модуль 3: Симуляція технічної та HR-співбесіди</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center pt-3 border-top mt-auto">
+                                <div>
+                                    <span class="text-muted small d-block">Вартість від</span>
+                                    <span class="fw-bold fs-5 text-primary">3 200 ₴</span> <span class="small text-muted">/ міс</span>
+                                </div>
+                                <button type="button" class="btn btn-primary-custom btn-sm" onclick="openEnrollModal('Business English')">
+                                    Записатися
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Course 4 -->
+                <div class="col-md-6 col-lg-4 course-card-wrapper" data-category="de exam" data-title="deutsch німецька мова goethe testdaf">
+                    <article class="card h-100 course-card shadow-sm border-0 rounded-4 overflow-hidden">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1527866959252-deab85ef7d1b?auto=format&fit=crop&w=600&q=80"
+                                 class="card-img-top" alt="Німецька мова" style="height: 200px; object-fit: cover;">
+                            <span class="badge bg-warning text-dark position-absolute top-0 end-0 m-3 rounded-pill px-3 py-2">A1 – B2</span>
+                        </div>
+                        <div class="card-body p-4 d-flex flex-column">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <span class="teacher-badge-lang">🇩🇪 Німецька</span>
+                                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>3.5 міс. / рівень</span>
+                            </div>
+                            <h2 class="h5 fw-bold mb-3">Deutsch: Від нуля до ВНЗ</h2>
+                            <p class="text-secondary small mb-3 flex-grow-1">
+                                Комплексне вивчення німецької для переїзду, роботи чи вступу до університетів Німеччини та Австрії.
+                            </p>
+
+                            <div class="accordion syllabus-accordion mb-3" id="accCourse4">
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="headingFour4">
+                                        <button class="accordion-button collapsed py-2 px-3 small" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour4">
+                                            Програма курсу (силабус)
+                                        </button>
+                                    </h3>
+                                    <div id="collapseFour4" class="accordion-collapse collapse" data-bs-parent="#accCourse4">
+                                        <div class="accordion-body small text-muted p-3">
+                                            <ul class="mb-0 ps-3">
+                                                <li>Модуль 1: Чітка граматична база та порядок слів</li>
+                                                <li>Модуль 2: Діалоги на щоденні та офіційні теми</li>
+                                                <li>Модуль 3: Підготовка до Goethe-Zertifikat / ÖSD</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center pt-3 border-top mt-auto">
+                                <div>
+                                    <span class="text-muted small d-block">Вартість від</span>
+                                    <span class="fw-bold fs-5 text-primary">2 600 ₴</span> <span class="small text-muted">/ міс</span>
+                                </div>
+                                <button type="button" class="btn btn-primary-custom btn-sm" onclick="openEnrollModal('Курс німецької мови')">
+                                    Записатися
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Course 5 -->
+                <div class="col-md-6 col-lg-4 course-card-wrapper" data-category="es" data-title="español іспанська мова dele">
+                    <article class="card h-100 course-card shadow-sm border-0 rounded-4 overflow-hidden">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1509840841025-9088ba78a826?auto=format&fit=crop&w=600&q=80"
+                                 class="card-img-top" alt="Іспанська мова" style="height: 200px; object-fit: cover;">
+                            <span class="badge bg-info text-dark position-absolute top-0 end-0 m-3 rounded-pill px-3 py-2">A1 – B2</span>
+                        </div>
+                        <div class="card-body p-4 d-flex flex-column">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <span class="teacher-badge-lang">🇪🇸 Іспанська</span>
+                                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>3 міс.</span>
+                            </div>
+                            <h2 class="h5 fw-bold mb-3">Español Dinámico</h2>
+                            <p class="text-secondary small mb-3 flex-grow-1">
+                                Жива іспанська мова без зубрьожки: серіали, музика, спілкування з носіями з Мадрида та Барселони.
+                            </p>
+
+                            <div class="accordion syllabus-accordion mb-3" id="accCourse5">
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="headingFive5">
+                                        <button class="accordion-button collapsed py-2 px-3 small" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive5">
+                                            Програма курсу (силабус)
+                                        </button>
+                                    </h3>
+                                    <div id="collapseFive5" class="accordion-collapse collapse" data-bs-parent="#accCourse5">
+                                        <div class="accordion-body small text-muted p-3">
+                                            <ul class="mb-0 ps-3">
+                                                <li>Модуль 1: Фонетика та базові розмовні конструкції</li>
+                                                <li>Модуль 2: Сленг та сучасні ідіоми Іспанії</li>
+                                                <li>Модуль 3: Розмовні клуби з носієм мови</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center pt-3 border-top mt-auto">
+                                <div>
+                                    <span class="text-muted small d-block">Вартість від</span>
+                                    <span class="fw-bold fs-5 text-primary">2 500 ₴</span> <span class="small text-muted">/ міс</span>
+                                </div>
+                                <button type="button" class="btn btn-primary-custom btn-sm" onclick="openEnrollModal('Курс іспанської мови')">
+                                    Записатися
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Course 6 -->
+                <div class="col-md-6 col-lg-4 course-card-wrapper" data-category="fr" data-title="français французька мова delf">
+                    <article class="card h-100 course-card shadow-sm border-0 rounded-4 overflow-hidden">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=600&q=80"
+                                 class="card-img-top" alt="Французька мова" style="height: 200px; object-fit: cover;">
+                            <span class="badge bg-secondary position-absolute top-0 end-0 m-3 rounded-pill px-3 py-2">A1 – B2</span>
+                        </div>
+                        <div class="card-body p-4 d-flex flex-column">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <span class="teacher-badge-lang">🇫🇷 Французька</span>
+                                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>3 міс.</span>
+                            </div>
+                            <h2 class="h5 fw-bold mb-3">Français Élégant & DELF</h2>
+                            <p class="text-secondary small mb-3 flex-grow-1">
+                                Занурення у французьку культуру, красива вимова, підготовка до іспитів DELF A2/B2 для релокації.
+                            </p>
+
+                            <div class="accordion syllabus-accordion mb-3" id="accCourse6">
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="headingSix6">
+                                        <button class="accordion-button collapsed py-2 px-3 small" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix6">
+                                            Програма курсу (силабус)
+                                        </button>
+                                    </h3>
+                                    <div id="collapseSix6" class="accordion-collapse collapse" data-bs-parent="#accCourse6">
+                                        <div class="accordion-body small text-muted p-3">
+                                            <ul class="mb-0 ps-3">
+                                                <li>Модуль 1: Постановка вимови та зв'язування звуків</li>
+                                                <li>Модуль 2: Жива розмовна французька для подорожей</li>
+                                                <li>Модуль 3: Підготовка до міжнародного DELF</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center pt-3 border-top mt-auto">
+                                <div>
+                                    <span class="text-muted small d-block">Вартість від</span>
+                                    <span class="fw-bold fs-5 text-primary">2 550 ₴</span> <span class="small text-muted">/ міс</span>
+                                </div>
+                                <button type="button" class="btn btn-primary-custom btn-sm" onclick="openEnrollModal('Курс французької мови')">
+                                    Записатися
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Course 7 -->
+                <div class="col-md-6 col-lg-4 course-card-wrapper" data-category="pl" data-title="polski польська мова karta polaka вступ">
+                    <article class="card h-100 course-card shadow-sm border-0 rounded-4 overflow-hidden">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1519197924294-4ba991a11128?auto=format&fit=crop&w=600&q=80"
+                                 class="card-img-top" alt="Польська мова" style="height: 200px; object-fit: cover;">
+                            <span class="badge bg-dark position-absolute top-0 end-0 m-3 rounded-pill px-3 py-2">A1 – B2</span>
+                        </div>
+                        <div class="card-body p-4 d-flex flex-column">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <span class="teacher-badge-lang">🇵🇱 Польська</span>
+                                <span class="text-muted small"><i class="fa-regular fa-clock me-1"></i>2.5 міс.</span>
+                            </div>
+                            <h2 class="h5 fw-bold mb-3">Польська для життя та навчання</h2>
+                            <p class="text-secondary small mb-3 flex-grow-1">
+                                Швидкий старт для вступу до польських університетів, отримання Карти Поляка та комфортної адаптації.
+                            </p>
+
+                            <div class="accordion syllabus-accordion mb-3" id="accCourse7">
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="headingSeven7">
+                                        <button class="accordion-button collapsed py-2 px-3 small" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven7">
+                                            Програма курсу (силабус)
+                                        </button>
+                                    </h3>
+                                    <div id="collapseSeven7" class="accordion-collapse collapse" data-bs-parent="#accCourse7">
+                                        <div class="accordion-body small text-muted p-3">
+                                            <ul class="mb-0 ps-3">
+                                                <li>Модуль 1: Специфіка вимови та «хибні друзі перекладача»</li>
+                                                <li>Модуль 2: Історія, культура та питання на Карту Поляка</li>
+                                                <li>Модуль 3: Академічна польська для студентів</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center pt-3 border-top mt-auto">
+                                <div>
+                                    <span class="text-muted small d-block">Вартість від</span>
+                                    <span class="fw-bold fs-5 text-primary">2 200 ₴</span> <span class="small text-muted">/ міс</span>
+                                </div>
+                                <button type="button" class="btn btn-primary-custom btn-sm" onclick="openEnrollModal('Курс польської мови')">
+                                    Записатися
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Empty Search Message -->
+            <div id="emptySearch" class="alert alert-warning text-center my-5 d-none" role="alert">
+                <i class="fa-solid fa-triangle-exclamation me-2"></i>За вашим запитом курсів не знайдено. Спробуйте змінити критерії пошуку або фільтри.
+            </div>
+
+            <!-- CEFR Levels Comparison Section -->
+            <section class="mt-5 pt-5">
+                <div class="section-title-wrapper text-center">
+                    <span class="section-subtitle">Орієнтири знань</span>
+                    <h2 class="h2 fw-bold">Міжнародна шкала рівнів CEFR</h2>
+                    <p class="text-muted">Дізнайтеся, якого результату ви досягнете після завершення кожного рівня у нашій школі.</p>
+                </div>
+
+                <div class="table-responsive rounded-4 shadow-sm">
+                    <table class="table table-hover table-cefr mb-0 align-middle">
+                        <thead>
+                            <tr>
+                                <th scope="col" style="width: 15%;">Рівень</th>
+                                <th scope="col" style="width: 25%;">Назва</th>
+                                <th scope="col" style="width: 45%;">Що ви зможете робити</th>
+                                <th scope="col" style="width: 15%;">Тривалість</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="badge bg-primary px-3 py-2 fs-6">A1</span></td>
+                                <td class="fw-bold">Початковий (Beginner)</td>
+                                <td>Розуміння простих щоденних виразів, здатність представитися, запитати дорогу, зробити замовлення в кафе.</td>
+                                <td>2 – 3 міс.</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge bg-info text-dark px-3 py-2 fs-6">A2</span></td>
+                                <td class="fw-bold">Нижче середнього (Elementary)</td>
+                                <td>Спілкування у простих рутинних ситуаціях, опис сім'ї, роботи, хобі, базове листування.</td>
+                                <td>3 міс.</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge bg-success px-3 py-2 fs-6">B1</span></td>
+                                <td class="fw-bold">Середній (Intermediate)</td>
+                                <td>Вільні подорожі без перекладача, висловлення власної думки, розуміння основних тем новин та фільмів.</td>
+                                <td>3 – 4 міс.</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge bg-warning text-dark px-3 py-2 fs-6">B2</span></td>
+                                <td class="fw-bold">Вище середнього (Upper-Intermediate)</td>
+                                <td>Робота в міжнародних компаніях, розуміння складних технічних текстів, спонтанна розмова з носіями.</td>
+                                <td>4 міс.</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge bg-danger px-3 py-2 fs-6">C1 – C2</span></td>
+                                <td class="fw-bold">Просунутий (Advanced / Proficiency)</td>
+                                <td>Навчання в іноземних університетах, вільне написання наукових статей, використання ідіом, гумору та сарказму.</td>
+                                <td>5+ міс.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Bottom CTA Banner -->
+            <div class="card bg-dark text-white rounded-4 p-4 p-md-5 mt-5 shadow-lg position-relative overflow-hidden">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <h3 class="display-6 fw-bold mb-3">Не впевнені, який рівень обрати?</h3>
+                        <p class="lead text-light mb-0">Пройдіть безкоштовне тестування з нашим методистом та отримайте індивідуальну карту навчання.</p>
+                    </div>
+                    <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+                        <button type="button" class="btn btn-primary-custom btn-lg text-white" onclick="openEnrollModal('Тестування рівня')">
+                            <i class="fa-solid fa-list-check me-2"></i>Пройти тест безкоштовно
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal for Course Enrollment -->
+    <div class="modal fade" id="enrollModal" tabindex="-1" aria-labelledby="enrollModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 border-0 shadow">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold" id="enrollModalTitle">Запис на курс</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрити"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <p class="text-muted small mb-4">Заповніть заявку, і наш менеджер зв'яжеться з вами протягом 15 хвилин для узгодження розкладу.</p>
+                    <form id="enrollForm" onsubmit="handleEnrollSubmit(event)">
+                        <div class="mb-3">
+                            <label for="enrollCourseName" class="form-label small fw-semibold">Обрана програма</label>
+                            <input type="text" class="form-control" id="enrollCourseName" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="enrollName" class="form-label small fw-semibold">Ваше ім'я <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="enrollName" placeholder="Олена Шевченко" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="enrollPhone" class="form-label small fw-semibold">Номер телефону <span class="text-danger">*</span></label>
+                            <input type="tel" class="form-control" id="enrollPhone" placeholder="+380 (99) 123-45-67" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="enrollEmail" class="form-label small fw-semibold">Email</label>
+                            <input type="email" class="form-control" id="enrollEmail" placeholder="example@gmail.com">
+                        </div>
+                        <div class="mb-4">
+                            <label for="enrollFormat" class="form-label small fw-semibold">Бажаний формат</label>
+                            <select class="form-select" id="enrollFormat">
+                                <option value="group">Міні-група (4-6 осіб)</option>
+                                <option value="individual">Індивідуальні заняття 1-на-1</option>
+                                <option value="weekend">Інтенсив вихідного дня</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary-custom w-100 py-2">
+                            Підтвердити запис
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5 mt-5">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-4">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <i class="fa-solid fa-graduation-cap text-primary fs-3"></i>
+                        <span class="h4 fw-bold mb-0 text-white">Polyglot Academy</span>
+                    </div>
+                    <p class="text-secondary small mb-3">
+                        Сучасна онлайн-школа вивчення іноземних мов з носіями мови та інтерактивними методиками.
+                    </p>
+                    <div class="d-flex gap-3 text-secondary">
+                        <a href="#" class="text-secondary" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="text-secondary" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="text-secondary" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                        <a href="#" class="text-secondary" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h6 class="fw-bold mb-3 text-light">Навігація</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="index.html" class="text-secondary text-decoration-none">Головна</a></li>
+                        <li class="mb-2"><a href="courses.html" class="text-secondary text-decoration-none">Курси</a></li>
+                        <li class="mb-2"><a href="teachers.html" class="text-secondary text-decoration-none">Викладачі</a></li>
+                        <li class="mb-2"><a href="reviews.html" class="text-secondary text-decoration-none">Відгуки</a></li>
+                        <li class="mb-2"><a href="index.html#pricing" class="text-secondary text-decoration-none">Тарифи</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <h6 class="fw-bold mb-3 text-light">Мовні напрямки</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="courses.html" class="text-secondary text-decoration-none">Англійська онлайн</a></li>
+                        <li class="mb-2"><a href="courses.html" class="text-secondary text-decoration-none">Німецька для початківців</a></li>
+                        <li class="mb-2"><a href="courses.html" class="text-secondary text-decoration-none">Іспанська розмовна</a></li>
+                        <li class="mb-2"><a href="courses.html" class="text-secondary text-decoration-none">Підготовка до IELTS</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="fw-bold mb-3 text-light">Контакти</h6>
+                    <ul class="list-unstyled small text-secondary">
+                        <li class="mb-2"><i class="fa-solid fa-phone me-2"></i>+380 (44) 123-45-67</li>
+                        <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i>hello@polyglot.ua</li>
+                        <li class="mb-2"><i class="fa-solid fa-location-dot me-2"></i>м. Київ, вул. Освіти, 10</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-top border-secondary pt-4 mt-4 text-center text-secondary small">
+                © 2026 Polyglot Academy. Лабораторна робота №2 · Група І-23. Всі права захищено.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Filter by Category
+        function applyCourseFilter(cat, btn) {
+            document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const searchVal = document.getElementById('courseSearch').value.toLowerCase().trim();
+            filterAndSearch(cat, searchVal);
+        }
+
+        // Live Search by Title/Keywords
+        function searchCourses() {
+            const activeBtn = document.querySelector('.filter-pill.active');
+            const currentCat = activeBtn ? (activeBtn.getAttribute('onclick').match(/'([^']+)'/)[1]) : 'all';
+            const searchVal = document.getElementById('courseSearch').value.toLowerCase().trim();
+            filterAndSearch(currentCat, searchVal);
+        }
+
+        function filterAndSearch(cat, searchVal) {
+            const cards = document.querySelectorAll('.course-card-wrapper');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                const cardTitle = card.getAttribute('data-title').toLowerCase();
+
+                const matchCat = (cat === 'all') || cardCat.includes(cat);
+                const matchSearch = (!searchVal) || cardTitle.includes(searchVal);
+
+                if (matchCat && matchSearch) {
+                    card.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            const emptyMsg = document.getElementById('emptySearch');
+            if (visibleCount === 0) {
+                emptyMsg.classList.remove('d-none');
+            } else {
+                emptyMsg.classList.add('d-none');
+            }
+        }
+
+        // Open Enrollment Modal
+        function openEnrollModal(courseName) {
+            document.getElementById('enrollCourseName').value = courseName;
+            const modal = new bootstrap.Modal(document.getElementById('enrollModal'));
+            modal.show();
+        }
+
+        // Handle Enrollment Submission
+        function handleEnrollSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('enrollName').value;
+            const course = document.getElementById('enrollCourseName').value;
+
+            const modalEl = document.getElementById('enrollModal');
+            const modalInstance = bootstrap.Modal.getInstance(modalEl);
+            if (modalInstance) {
+                modalInstance.hide();
+            }
+
+            const alertBox = document.createElement('div');
+            alertBox.className = 'alert alert-success alert-dismissible fade show position-fixed bottom-0 end-0 m-4 shadow-lg';
+            alertBox.style.zIndex = '9999';
+            alertBox.setAttribute('role', 'status');
+
+            alertBox.innerHTML = `
+                <strong>Дякуємо, ${name}!</strong> Вашу заявку на курс <em>"${course}"</em> прийнято. Наш координатор зв'яжеться з вами.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Закрити"></button>
+            `;
+            document.body.appendChild(alertBox);
+
+            setTimeout(() => {
+                alertBox.remove();
+            }, 5000);
+            document.getElementById('enrollForm').reset();
+        }
+    </script>
+</body>
+</html>

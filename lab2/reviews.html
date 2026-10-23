@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Відгуки студентів та історії успіху | Polyglot Academy</title>
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter & Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top" aria-label="Основна навігація">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span>Polyglot Academy</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Відкрити меню">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Головна</a></li>
+                    <li class="nav-item"><a class="nav-link" href="courses.html">Курси</a></li>
+                    <li class="nav-item"><a class="nav-link" href="teachers.html">Викладачі</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="reviews.html">Відгуки</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#pricing">Тарифи</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#faq">FAQ</a></li>
+                    <li class="nav-item ms-lg-2">
+                        <a href="#leaveReviewSection" class="btn btn-outline-primary btn-sm me-2">Залишити відгук</a>
+                        <a href="courses.html" class="btn btn-primary-custom btn-sm text-white">Обрати курс</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Subpage Hero Section -->
+    <header class="subpage-hero">
+        <div class="container">
+            <nav aria-label="Хлібні крихти" class="breadcrumb-custom">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="index.html"><i class="fa-solid fa-house me-1"></i>Головна</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Відгуки</li>
+                </ol>
+            </nav>
+            <h1 class="display-4 fw-extrabold mb-3">Історії успіху наших студентів</h1>
+            <p class="lead text-secondary mb-0" style="max-width: 800px;">
+                Реальні результати, складені на відмінно іспити IELTS і Goethe, офери в міжнародні компанії та впевненість у щоденному спілкуванні іноземними мовами.
+            </p>
+        </div>
+    </header>
+
+    <main class="py-5">
+        <div class="container">
+            <!-- Stats Highlights -->
+            <div class="row g-4 mb-5 text-center">
+                <div class="col-6 col-md-3">
+                    <div class="card p-3 p-md-4 border-0 shadow-sm rounded-4 h-100">
+                        <div class="stat-num text-primary mb-1">4.95 / 5</div>
+                        <div class="star-rating justify-content-center mb-2">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <span class="small text-muted">1 450+ верифікованих відгуків</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="card p-3 p-md-4 border-0 shadow-sm rounded-4 h-100">
+                        <div class="stat-num text-success mb-1">98%</div>
+                        <span class="fw-bold fs-6">Здача іспитів</span>
+                        <span class="small text-muted">складають IELTS/Goethe з 1-ї спроби</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="card p-3 p-md-4 border-0 shadow-sm rounded-4 h-100">
+                        <div class="stat-num text-primary mb-1">12 000+</div>
+                        <span class="fw-bold fs-6">Випускників</span>
+                        <span class="small text-muted">навчаються або працюють за кордоном</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="card p-3 p-md-4 border-0 shadow-sm rounded-4 h-100">
+                        <div class="stat-num text-warning mb-1">3 міс.</div>
+                        <span class="fw-bold fs-6">Подолання бар'єру</span>
+                        <span class="small text-muted">середній час до вільної розмови</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="filter-btn-group" role="toolbar" aria-label="Фільтр відгуків">
+                <button type="button" class="filter-pill active" onclick="filterReviews('all', this)">Всі відгуки</button>
+                <button type="button" class="filter-pill" onclick="filterReviews('video', this)"><i class="fa-solid fa-circle-play me-1 text-danger"></i>Відеовідгуки</button>
+                <button type="button" class="filter-pill" onclick="filterReviews('en', this)">🇬🇧 Англійська</button>
+                <button type="button" class="filter-pill" onclick="filterReviews('de', this)">🇩🇪 Німецька</button>
+                <button type="button" class="filter-pill" onclick="filterReviews('es', this)">🇪🇸 Іспанська</button>
+                <button type="button" class="filter-pill" onclick="filterReviews('pl', this)">🇵🇱 Польська</button>
+            </div>
+
+            <!-- Video Reviews Spotlight -->
+            <div class="mb-5" id="videoSection">
+                <h2 class="h4 fw-bold mb-3"><i class="fa-solid fa-video text-primary me-2"></i>Відео-історії випускників</h2>
+                <div class="row g-4">
+                    <div class="col-md-4 review-card-wrapper" data-category="video en">
+                        <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+                            <div class="position-relative">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80"
+                                     class="card-img-top" alt="Анна про IELTS" style="height: 220px; object-fit: cover;">
+                                <button type="button" class="btn btn-light rounded-circle position-absolute top-50 start-50 translate-middle shadow-lg p-3 text-primary"
+                                        aria-label="Переглянути відеовідгук Анни"
+                                        onclick="openReviewVideoModal('Анна Мельник: Підготовка до IELTS Academic', 'https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                                    <i class="fa-solid fa-play fa-xl"></i>
+                                </button>
+                                <span class="badge bg-danger position-absolute top-0 end-0 m-3 rounded-pill px-3 py-1">IELTS 8.0</span>
+                            </div>
+                            <div class="card-body p-3">
+                                <h3 class="h6 fw-bold mb-1">Анна Мельник</h3>
+                                <p class="text-muted small mb-2">Студентка Оксфордського університету</p>
+                                <p class="text-secondary small mb-0">«Завдяки курсу здала IELTS на 8.0 без стресу. Викладачі знають усі тонкощі критеріїв оцінювання!»</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 review-card-wrapper" data-category="video de">
+                        <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+                            <div class="position-relative">
+                                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80"
+                                     class="card-img-top" alt="Богдан про німецьку" style="height: 220px; object-fit: cover;">
+                                <button type="button" class="btn btn-light rounded-circle position-absolute top-50 start-50 translate-middle shadow-lg p-3 text-primary"
+                                        aria-label="Переглянути відеовідгук Богдана"
+                                        onclick="openReviewVideoModal('Богдан Кравчук: Німецька для інженерів B2', 'https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                                    <i class="fa-solid fa-play fa-xl"></i>
+                                </button>
+                                <span class="badge bg-warning text-dark position-absolute top-0 end-0 m-3 rounded-pill px-3 py-1">TestDaF 4×4</span>
+                            </div>
+                            <div class="card-body p-3">
+                                <h3 class="h6 fw-bold mb-1">Богдан Кравчук</h3>
+                                <p class="text-muted small mb-2">Інженер-конструктор у Мюнхені</p>
+                                <p class="text-secondary small mb-0">«Починав з рівня A2. Через 7 місяців спокійно пройшов технічну співбесіду німецькою!»</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 review-card-wrapper" data-category="video en">
+                        <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+                            <div class="position-relative">
+                                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80"
+                                     class="card-img-top" alt="Марія про Business English" style="height: 220px; object-fit: cover;">
+                                <button type="button" class="btn btn-light rounded-circle position-absolute top-50 start-50 translate-middle shadow-lg p-3 text-primary"
+                                        aria-label="Переглянути відеовідгук Марії"
+                                        onclick="openReviewVideoModal('Марія Сидорук: Кар\'єра в міжнародному IT', 'https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                                    <i class="fa-solid fa-play fa-xl"></i>
+                                </button>
+                                <span class="badge bg-success position-absolute top-0 end-0 m-3 rounded-pill px-3 py-1">Career Boost</span>
+                            </div>
+                            <div class="card-body p-3">
+                                <h3 class="h6 fw-bold mb-1">Марія Сидорук</h3>
+                                <p class="text-muted small mb-2">Product Manager в IT</p>
+                                <p class="text-secondary small mb-0">«Подолала страх говорити з клієнтами зі США та отримала підвищення до Lead PM.»</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detailed Text Reviews Grid -->
+            <div class="mb-5">
+                <h2 class="h4 fw-bold mb-3"><i class="fa-solid fa-comments text-primary me-2"></i>Відгуки випускників курсів</h2>
+                <div class="row g-4" id="textReviewsContainer">
+                    <!-- Review 1 -->
+                    <div class="col-md-6 col-lg-4 review-card-wrapper" data-category="en">
+                        <article class="card border-0 shadow-sm rounded-4 p-4 h-100 d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="star-rating">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <span class="badge bg-light text-success border border-success-subtle rounded-pill small">
+                                    <i class="fa-solid fa-circle-check me-1"></i>Верифіковано
+                                </span>
+                            </div>
+                            <p class="text-secondary small mb-4 flex-grow-1">
+                                «За 3 місяці інтенсиву із Сарою Дженкінс підняв Speaking з 6.0 до 7.5! Її практичні поради щодо структури відповідей та ідіом допомогли відчувати себе максимально впевнено на реальному іспиті в Варшаві.»
+                            </p>
+                            <div class="d-flex align-items-center gap-3 pt-3 border-top">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80"
+                                     alt="Михайло Федоренко" class="rounded-circle" style="width: 48px; height: 48px; object-fit: cover;">
+                                <div>
+                                    <div class="fw-bold fs-6">Михайло Федоренко</div>
+                                    <div class="small text-muted">Курс: IELTS Preparation · Результат: 7.5</div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div class="col-md-6 col-lg-4 review-card-wrapper" data-category="de">
+                        <article class="card border-0 shadow-sm rounded-4 p-4 h-100 d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="star-rating">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <span class="badge bg-light text-success border border-success-subtle rounded-pill small">
+                                    <i class="fa-solid fa-circle-check me-1"></i>Верифіковано
+                                </span>
+                            </div>
+                            <p class="text-secondary small mb-4 flex-grow-1">
+                                «Починала з абсолютного нуля з Маркусом Вебером. Думала, що німецька граматика — це жах, але методика асоціацій все змінила. Через 8 місяців склала Goethe B2 та вступила до магістратури ТУ Мюнхен!»
+                            </p>
+                            <div class="d-flex align-items-center gap-3 pt-3 border-top">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80"
+                                     alt="Катерина Бондар" class="rounded-circle" style="width: 48px; height: 48px; object-fit: cover;">
+                                <div>
+                                    <div class="fw-bold fs-6">Катерина Бондар</div>
+                                    <div class="small text-muted">Курс: Deutsch A1-B2 · Вступ до ТУМ</div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Review 3 -->
+                    <div class="col-md-6 col-lg-4 review-card-wrapper" data-category="es">
+                        <article class="card border-0 shadow-sm rounded-4 p-4 h-100 d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="star-rating">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <span class="badge bg-light text-success border border-success-subtle rounded-pill small">
+                                    <i class="fa-solid fa-circle-check me-1"></i>Верифіковано
+                                </span>
+                            </div>
+                            <p class="text-secondary small mb-4 flex-grow-1">
+                                «Олена Родрігес закохує в іспанську з першого погляду! На уроках ми майже не говорили українською — лише живі діалоги, пісні та розмовні кейси. Тепер спокійно спілкуюся під час подорожей Іспанією.»
+                            </p>
+                            <div class="d-flex align-items-center gap-3 pt-3 border-top">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80"
+                                     alt="Вікторія Романюк" class="rounded-circle" style="width: 48px; height: 48px; object-fit: cover;">
+                                <div>
+                                    <div class="fw-bold fs-6">Вікторія Романюк</div>
+                                    <div class="small text-muted">Курс: Español Dinámico · Рівень B1</div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Review 4 -->
+                    <div class="col-md-6 col-lg-4 review-card-wrapper" data-category="pl">
+                        <article class="card border-0 shadow-sm rounded-4 p-4 h-100 d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="star-rating">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <span class="badge bg-light text-success border border-success-subtle rounded-pill small">
+                                    <i class="fa-solid fa-circle-check me-1"></i>Верифіковано
+                                </span>
+                            </div>
+                            <p class="text-secondary small mb-4 flex-grow-1">
+                                «Готувався до співбесіди на Карту Поляка з Агнешкою Новак. Пройшли всі типові запитання консула, історію та польські свята. Здав без жодного зауваження! Дуже вдячний академії за професіоналізм.»
+                            </p>
+                            <div class="d-flex align-items-center gap-3 pt-3 border-top">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80"
+                                     alt="Денис Грищенко" class="rounded-circle" style="width: 48px; height: 48px; object-fit: cover;">
+                                <div>
+                                    <div class="fw-bold fs-6">Денис Грищенко</div>
+                                    <div class="small text-muted">Курс: Карта Поляка · Отримано успішно</div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Review 5 -->
+                    <div class="col-md-6 col-lg-4 review-card-wrapper" data-category="en">
+                        <article class="card border-0 shadow-sm rounded-4 p-4 h-100 d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="star-rating">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <span class="badge bg-light text-success border border-success-subtle rounded-pill small">
+                                    <i class="fa-solid fa-circle-check me-1"></i>Верифіковано
+                                </span>
+                            </div>
+                            <p class="text-secondary small mb-4 flex-grow-1">
+                                «Працюю в IT, на мітингах із замовниками з Каліфорнії постійно ніяковів. Курс Business English із Девідом Міллером допоміг вивчити не просто слова, а реальний розмовний професійний сленг. Рекомендую всім айтівцям!»
+                            </p>
+                            <div class="d-flex align-items-center gap-3 pt-3 border-top">
+                                <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=120&q=80"
+                                     alt="Артем Коваль" class="rounded-circle" style="width: 48px; height: 48px; object-fit: cover;">
+                                <div>
+                                    <div class="fw-bold fs-6">Артем Коваль</div>
+                                    <div class="small text-muted">Курс: Business English · Senior DevOps</div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Review 6 -->
+                    <div class="col-md-6 col-lg-4 review-card-wrapper" data-category="fr">
+                        <article class="card border-0 shadow-sm rounded-4 p-4 h-100 d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="star-rating">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <span class="badge bg-light text-success border border-success-subtle rounded-pill small">
+                                    <i class="fa-solid fa-circle-check me-1"></i>Верифіковано
+                                </span>
+                            </div>
+                            <p class="text-secondary small mb-4 flex-grow-1">
+                                «Французька вимова завжди здавалася мені недосяжною. Жан-П'єр Дюбуа поставив правильні звуки вже на перших тижнях. Курс неймовірно естетичний і структурований. Зараз готуюся до DELF B1!»
+                            </p>
+                            <div class="d-flex align-items-center gap-3 pt-3 border-top">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80"
+                                     alt="Оксана Литвин" class="rounded-circle" style="width: 48px; height: 48px; object-fit: cover;">
+                                <div>
+                                    <div class="fw-bold fs-6">Оксана Литвин</div>
+                                    <div class="small text-muted">Курс: Français Élégant · Рівень A2</div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form: Leave a Review -->
+            <section class="card bg-light border-0 rounded-4 p-4 p-md-5 shadow-sm mt-5" id="leaveReviewSection">
+                <div class="row gy-4">
+                    <div class="col-lg-5">
+                        <span class="section-subtitle">Ваша думка важлива</span>
+                        <h2 class="h3 fw-bold mb-3">Залиште свій відгук</h2>
+                        <p class="text-secondary mb-4">
+                            Ми прагнемо щодня робити навчання комфортнішим. Поділіться своїм досвідом, успіхами та враженнями від занять у Polyglot Academy.
+                        </p>
+                        <div class="p-3 bg-white rounded-3 shadow-sm mb-3">
+                            <div class="fw-bold mb-1"><i class="fa-solid fa-shield-halved text-primary me-2"></i>Модерація відгуків</div>
+                            <div class="small text-muted">Усі відгуки публікуються після перевірки нашого координатора для захисту від спаму.</div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7">
+                        <div class="bg-white p-4 p-md-4 rounded-4 shadow-sm">
+                            <form id="newReviewForm" class="needs-validation" onsubmit="handleReviewSubmit(event)" novalidate>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="revName" class="form-label small fw-semibold">Ваше ім'я та прізвище <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="revName" placeholder="Олександр Ткаченко" required>
+                                        <div class="invalid-feedback">Будь ласка, введіть ваше ім'я.</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="revCourse" class="form-label small fw-semibold">Курс, який ви проходили <span class="text-danger">*</span></label>
+                                        <select class="form-select" id="revCourse" required>
+                                            <option value="" selected disabled>Оберіть напрямок...</option>
+                                            <option value="en">General English (Англійська)</option>
+                                            <option value="ielts">IELTS / TOEFL Preparation</option>
+                                            <option value="biz">Business English</option>
+                                            <option value="de">Deutsch (Німецька)</option>
+                                            <option value="es">Español (Іспанська)</option>
+                                            <option value="fr">Français (Французька)</option>
+                                            <option value="pl">Polski (Польська)</option>
+                                        </select>
+                                        <div class="invalid-feedback">Будь ласка, оберіть курс.</div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="revRating" class="form-label small fw-semibold">Ваша оцінка <span class="text-danger">*</span></label>
+                                        <select class="form-select" id="revRating" required>
+                                            <option value="5">⭐⭐⭐⭐⭐ Відмінно (5 з 5)</option>
+                                            <option value="4">⭐⭐⭐⭐ Добре (4 з 5)</option>
+                                            <option value="3">⭐⭐⭐ Задовільно (3 з 5)</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="revText" class="form-label small fw-semibold">Текст вашого відгуку <span class="text-danger">*</span></label>
+                                        <textarea class="form-control" id="revText" rows="4" placeholder="Опишіть ваші враження від викладача, платформи та результати навчання..." required></textarea>
+                                        <div class="invalid-feedback">Будь ласка, напишіть текст відгуку.</div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-primary-custom w-100 py-2">
+                                            <i class="fa-regular fa-paper-plane me-2"></i>Опублікувати відгук
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modal for Video Review -->
+    <div class="modal fade" id="reviewVideoModal" tabindex="-1" aria-labelledby="reviewVideoTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-dark border-0 rounded-4 overflow-hidden shadow-lg">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title text-white fw-bold" id="reviewVideoTitle">Відеовідгук</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Закрити"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="ratio ratio-16x9 rounded-3 overflow-hidden shadow">
+                        <iframe id="reviewIframe" src="about:blank" title="Відеовідгук студента" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5 mt-5">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-4">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <i class="fa-solid fa-graduation-cap text-primary fs-3"></i>
+                        <span class="h4 fw-bold mb-0 text-white">Polyglot Academy</span>
+                    </div>
+                    <p class="text-secondary small mb-3">
+                        Сучасна онлайн-школа вивчення іноземних мов з носіями мови та інтерактивними методиками.
+                    </p>
+                    <div class="d-flex gap-3 text-secondary">
+                        <a href="#" class="text-secondary" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="text-secondary" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="text-secondary" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                        <a href="#" class="text-secondary" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h6 class="fw-bold mb-3 text-light">Навігація</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="index.html" class="text-secondary text-decoration-none">Головна</a></li>
+                        <li class="mb-2"><a href="courses.html" class="text-secondary text-decoration-none">Курси</a></li>
+                        <li class="mb-2"><a href="teachers.html" class="text-secondary text-decoration-none">Викладачі</a></li>
+                        <li class="mb-2"><a href="reviews.html" class="text-secondary text-decoration-none">Відгуки</a></li>
+                        <li class="mb-2"><a href="index.html#pricing" class="text-secondary text-decoration-none">Тарифи</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <h6 class="fw-bold mb-3 text-light">Мовні напрямки</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="courses.html" class="text-secondary text-decoration-none">Англійська онлайн</a></li>
+                        <li class="mb-2"><a href="courses.html" class="text-secondary text-decoration-none">Німецька для початківців</a></li>
+                        <li class="mb-2"><a href="courses.html" class="text-secondary text-decoration-none">Іспанська розмовна</a></li>
+                        <li class="mb-2"><a href="courses.html" class="text-secondary text-decoration-none">Підготовка до IELTS</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="fw-bold mb-3 text-light">Контакти</h6>
+                    <ul class="list-unstyled small text-secondary">
+                        <li class="mb-2"><i class="fa-solid fa-phone me-2"></i>+380 (44) 123-45-67</li>
+                        <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i>hello@polyglot.ua</li>
+                        <li class="mb-2"><i class="fa-solid fa-location-dot me-2"></i>м. Київ, вул. Освіти, 10</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-top border-secondary pt-4 mt-4 text-center text-secondary small">
+                © 2026 Polyglot Academy. Лабораторна робота №2 · Група І-23. Всі права захищено.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function filterReviews(category, btn) {
+            document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const items = document.querySelectorAll('.review-card-wrapper');
+            items.forEach(card => {
+                const cats = card.getAttribute('data-category');
+                if (category === 'all' || cats.includes(category)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function openReviewVideoModal(title, videoUrl) {
+            document.getElementById('reviewVideoTitle').textContent = title;
+            document.getElementById('reviewIframe').src = videoUrl;
+            const modal = new bootstrap.Modal(document.getElementById('reviewVideoModal'));
+            modal.show();
+        }
+
+        document.getElementById('reviewVideoModal').addEventListener('hidden.bs.modal', function () {
+            document.getElementById('reviewIframe').src = 'about:blank';
+        });
+
+        function handleReviewSubmit(e) {
+            e.preventDefault();
+            const form = document.getElementById('newReviewForm');
+
+            if (!form.checkValidity()) {
+                form.classList.add('was-validated');
+                return;
+            }
+
+            const name = document.getElementById('revName').value;
+            const text = document.getElementById('revText').value;
+
+            // Prepend new review card to text reviews
+            const newCol = document.createElement('div');
+            newCol.className = 'col-md-6 col-lg-4 review-card-wrapper';
+            newCol.setAttribute('data-category', 'all');
+
+            newCol.innerHTML = `
+                <article class="card border-0 shadow-sm rounded-4 p-4 h-100 d-flex flex-column border-primary">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div class="star-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <span class="badge bg-primary rounded-pill small">Щойно додано</span>
+                    </div>
+                    <p class="text-secondary small mb-4 flex-grow-1">«${text}»</p>
+                    <div class="d-flex align-items-center gap-3 pt-3 border-top">
+                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center fw-bold" style="width: 48px; height: 48px;">
+                            ${name.charAt(0)}
+                        </div>
+                        <div>
+                            <div class="fw-bold fs-6">${name}</div>
+                            <div class="small text-muted">Випускник курсу</div>
+                        </div>
+                    </div>
+                </article>
+            `;
+
+            const container = document.getElementById('textReviewsContainer');
+            container.insertBefore(newCol, container.firstChild);
+
+            form.reset();
+            form.classList.remove('was-validated');
+
+            const alertBox = document.createElement('div');
+            alertBox.className = 'alert alert-success alert-dismissible fade show position-fixed bottom-0 end-0 m-4 shadow-lg';
+            alertBox.style.zIndex = '9999';
+            alertBox.innerHTML = `
+                <strong>Дякуємо, ${name}!</strong> Ваш відгук успішно додано та розміщено на сторінці.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Закрити"></button>
+            `;
+            document.body.appendChild(alertBox);
+            setTimeout(() => alertBox.remove(), 5000);
+        }
+    </script>
+</body>
+</html>

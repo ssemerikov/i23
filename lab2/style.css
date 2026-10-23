@@ -49,6 +49,14 @@
             color: var(--primary-color);
         }
 
+        .text-primary-hover {
+            transition: var(--transition);
+        }
+
+        .text-primary-hover:hover {
+            color: var(--primary-color) !important;
+        }
+
         /* Hero Section */
         .hero-section {
             background: linear-gradient(135deg, #f0fdf4 0%, #e0e7ff 50%, #fef3c7 100%);
@@ -413,3 +421,143 @@
             right: 20px;
             z-index: 1090;
         }
+
+        /* Subpage Hero */
+        .subpage-hero {
+            background: linear-gradient(135deg, #f0fdf4 0%, #e0e7ff 50%, #fef3c7 100%);
+            padding: 5rem 0 3rem 0;
+            position: relative;
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        /* Breadcrumb Custom */
+        .breadcrumb-custom {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            padding: 0.5rem 1.25rem;
+            border-radius: 2rem;
+            display: inline-flex;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            margin-bottom: 1.5rem;
+        }
+
+        .breadcrumb-custom .breadcrumb-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .breadcrumb-custom .breadcrumb-item.active {
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        /* Filter Buttons Group */
+        .filter-btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .filter-pill {
+            border: 1px solid #cbd5e1;
+            background: white;
+            color: #475569;
+            padding: 0.5rem 1.2rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .filter-pill:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            background: #f8fafc;
+        }
+
+        .filter-pill.active {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 10px rgba(79, 70, 229, 0.25);
+        }
+
+        /* Syllabus Accordion */
+        .syllabus-accordion .accordion-item {
+            border: 1px solid #e2e8f0;
+            border-radius: 0.75rem !important;
+            margin-bottom: 0.75rem;
+            overflow: hidden;
+        }
+
+        .syllabus-accordion .accordion-button {
+            font-weight: 600;
+            background-color: #f8fafc;
+            color: var(--dark-color);
+            padding: 1rem 1.25rem;
+        }
+
+        .syllabus-accordion .accordion-button:not(.collapsed) {
+            background-color: #e0e7ff;
+            color: var(--primary-color);
+            box-shadow: none;
+        }
+
+        /* Star Rating */
+        .star-rating {
+            color: #fbbf24;
+            display: inline-flex;
+            gap: 2px;
+        }
+
+        .star-rating .fa-star-half-stroke,
+        .star-rating .fa-star {
+            color: #fbbf24;
+        }
+
+        /* CEFR Table */
+        .table-cefr thead th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            border: none;
+        }
+
+        .table-cefr td, .table-cefr th {
+            padding: 1rem;
+            vertical-align: middle;
+        }
+
+        /* Teacher Card Detailed */
+        .teacher-badge-lang {
+            background-color: #e0e7ff;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.8rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+        }
+
+        .certificate-badge {
+            background-color: #ecfdf5;
+            color: #059669;
+            font-weight: 600;
+            font-size: 0.75rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 0.5rem;
+            border: 1px solid #a7f3d0;
+        }
+
+        /* Review Card Detailed */
+        .review-score-badge {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            font-weight: 700;
+            padding: 0.35rem 0.8rem;
+            border-radius: 2rem;
+            font-size: 0.85rem;
+        }
+

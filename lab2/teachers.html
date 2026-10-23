@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Наші викладачі | Polyglot Academy</title>
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter & Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top" aria-label="Основна навігація">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span>Polyglot Academy</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Відкрити меню">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Головна</a></li>
+                    <li class="nav-item"><a class="nav-link" href="courses.html">Курси</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="teachers.html">Викладачі</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reviews.html">Відгуки</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#pricing">Тарифи</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#faq">FAQ</a></li>
+                    <li class="nav-item ms-lg-2">
+                        <button type="button" class="btn btn-primary-custom btn-sm text-white" onclick="openTeacherBooking('Будь-який викладач')">Пробний урок</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Subpage Hero Section -->
+    <header class="subpage-hero">
+        <div class="container">
+            <nav aria-label="Хлібні крихти" class="breadcrumb-custom">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="index.html"><i class="fa-solid fa-house me-1"></i>Головна</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Викладачі</li>
+                </ol>
+            </nav>
+            <h1 class="display-4 fw-extrabold mb-3">Команда викладачів та носіїв мови</h1>
+            <p class="lead text-secondary mb-0" style="max-width: 800px;">
+                Вивчайте мову з найкращими: міжнародні сертифікати CELTA, DELTA, TESOL, Goethe-Zertifikat, роки практики за кордоном та щира любов до викладання.
+            </p>
+        </div>
+    </header>
+
+    <main class="py-5">
+        <div class="container">
+            <!-- Filter by language -->
+            <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
+                <div class="filter-btn-group mb-0" role="toolbar" aria-label="Фільтр викладачів">
+                    <button type="button" class="filter-pill active" onclick="filterTeachers('all', this)">Всі викладачі</button>
+                    <button type="button" class="filter-pill" onclick="filterTeachers('en', this)">🇬🇧 Англійська</button>
+                    <button type="button" class="filter-pill" onclick="filterTeachers('de', this)">🇩🇪 Німецька</button>
+                    <button type="button" class="filter-pill" onclick="filterTeachers('es', this)">🇪🇸 Іспанська</button>
+                    <button type="button" class="filter-pill" onclick="filterTeachers('fr', this)">🇫🇷 Французька</button>
+                    <button type="button" class="filter-pill" onclick="filterTeachers('pl', this)">🇵🇱 Польська</button>
+                    <button type="button" class="filter-pill" onclick="filterTeachers('native', this)">🌟 Носії мови (Native)</button>
+                </div>
+                <div class="text-muted small">
+                    Усього в команді: <strong class="text-dark">35+ викладачів</strong>
+                </div>
+            </div>
+
+            <!-- Teachers Grid -->
+            <div class="row g-4" id="teachersGrid">
+                <!-- Teacher 1 -->
+                <div class="col-md-6 col-lg-4 col-xl-3 teacher-card-wrapper" data-lang="en native">
+                    <article class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden text-center teacher-card">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80"
+                                 class="card-img-top" alt="Sarah Jenkins" style="height: 260px; object-fit: cover;">
+                            <span class="badge bg-success position-absolute top-0 end-0 m-3 rounded-pill px-3 py-2">
+                                <i class="fa-solid fa-star me-1 text-warning"></i> 4.98
+                            </span>
+                            <span class="badge bg-primary position-absolute bottom-0 start-0 m-3 rounded-pill px-3 py-1">Native Speaker</span>
+                        </div>
+                        <div class="card-body p-4 d-flex flex-column">
+                            <h2 class="h5 fw-bold mb-1">Sarah Jenkins</h2>
+                            <p class="text-muted small mb-2"><i class="fa-solid fa-location-dot me-1 text-primary"></i>Лондон, Великобританія</p>
+                            <div class="d-flex flex-wrap justify-content-center gap-1 mb-3">
+                                <span class="certificate-badge">CELTA</span>
+                                <span class="certificate-badge">DELTA</span>
+                                <span class="certificate-badge">IELTS Expert</span>
+                            </div>
+                            <p class="text-secondary small mb-3 flex-grow-1">
+                                8 років досвіду. Спеціалізується на підготовці до IELTS Academic (студенти отримують від 7.5) та діловій комунікації.
+                            </p>
+                            <div class="border-top pt-3 mt-auto d-flex gap-2">
+                                <button type="button" class="btn btn-outline-secondary btn-sm w-50"
+                                        onclick="showTeacherBio('Sarah Jenkins', 'Великобританія (Native)', '8 років', 'CELTA, DELTA (Cambridge)', 'Спеціалізується на підготовці до складання мовних іспитів IELTS та CAE. Понад 400 випускників Сари вступили до провідних університетів Великої Британії та Канади. Акцент на зняття психологічного блоку говоріння.', 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80')">
+                                    Профіль
+                                </button>
+                                <button type="button" class="btn btn-primary-custom btn-sm w-50" onclick="openTeacherBooking('Sarah Jenkins')">
+                                    Записатися
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Teacher 2 -->
+                <div class="col-md-6 col-lg-4 col-xl-3 teacher-card-wrapper" data-lang="de native">
+                    <article class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden text-center teacher-card">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80"
+                                 class="card-img-top" alt="Markus Weber" style="height: 260px; object-fit: cover;">
+                            <span class="badge bg-success position-absolute top-0 end-0 m-3 rounded-pill px-3 py-2">
+                                <i class="fa-solid fa-star me-1 text-warning"></i> 4.95
+                            </span>
+                            <span class="badge bg-warning text-dark position-absolute bottom-0 start-0 m-3 rounded-pill px-3 py-1">Native Speaker</span>
+                        </div>
+                        <div class="card-body p-4 d-flex flex-column">
+                            <h2 class="h5 fw-bold mb-1">Markus Weber</h2>
+                            <p class="text-muted small mb-2"><i class="fa-solid fa-location-dot me-1 text-primary"></i>Мюнхен, Німеччина</p>
+                            <div class="d-flex flex-wrap justify-content-center gap-1 mb-3">
+                                <span class="certificate-badge">Goethe Trainer</span>
+                                <span class="certificate-badge">TestDaF Pro</span>
+                            </div>
+                            <p class="text-secondary small mb-3 flex-grow-1">
+                                9 років досвіду. Практикує сучасну комунікативну методику без сухої теорії. Готує до вступу у ВНЗ Німеччини.
+                            </p>
+                            <div class="border-top pt-3 mt-auto d-flex gap-2">
+                                <button type="button" class="btn btn-outline-secondary btn-sm w-50"
+                                        onclick="showTeacherBio('Markus Weber', 'Німеччина (Native)', '9 років', 'Goethe-Institut Trainer, TestDaF Prüfer', 'Маркус закінчив Мюнхенський університет Людвіга-Максиміліана. Розробив авторський інтенсивний курс німецької для медиків та інженерів, які переїжджають працювати до ФРН.', 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80')">
+                                    Профіль
+                                </button>
+                                <button type="button" class="btn btn-primary-custom btn-sm w-50" onclick="openTeacherBooking('Markus Weber')">
+                                    Записатися
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Teacher 3 -->
+                <div class="col-md-6 col-lg-4 col-xl-3 teacher-card-wrapper" data-lang="es native">
+                    <article class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden text-center teacher-card">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80"
+                                 class="card-img-top" alt="Elena Rodriguez" style="height: 260px; object-fit: cover;">
+                            <span class="badge bg-success position-absolute top-0 end-0 m-3 rounded-pill px-3 py-2">
+                                <i class="fa-solid fa-star me-1 text-warning"></i> 4.97
+                            </span>
+                            <span class="badge bg-info text-dark position-absolute bottom-0 start-0 m-3 rounded-pill px-3 py-1">Native Speaker</span>
+                        </div>
+                        <div class="card-body p-4 d-flex flex-column">
+                            <h2 class="h5 fw-bold mb-1">Elena Rodriguez</h2>
+                            <p class="text-muted small mb-2"><i class="fa-solid fa-location-dot me-1 text-primary"></i>Барселона, Іспанія</p>
+                            <div class="d-flex flex-wrap justify-content-center gap-1 mb-3">
+                                <span class="certificate-badge">ELE Cervantes</span>
+                                <span class="certificate-badge">DELE C2</span>
+                            </div>
+                            <p class="text-secondary small mb-3 flex-grow-1">
+                                6 років викладання. Динамічні уроки, легке засвоєння граматики через інтерактивні кейси та латиноамериканську музику.
+                            </p>
+                            <div class="border-top pt-3 mt-auto d-flex gap-2">
+                                <button type="button" class="btn btn-outline-secondary btn-sm w-50"
+                                        onclick="showTeacherBio('Elena Rodriguez', 'Іспанія (Native)', '6 років', 'ELE Cervantes, Universitat de Barcelona', 'Олена захоплює учнів живою розмовною іспанською з першого заняття. Веде розмовні клуби вихідного дня та готує до складання іспитів DELE рівня A1-C1.', 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80')">
+                                    Профіль
+                                </button>
+                                <button type="button" class="btn btn-primary-custom btn-sm w-50" onclick="openTeacherBooking('Elena Rodriguez')">
+                                    Записатися
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Teacher 4 -->
+                <div class="col-md-6 col-lg-4 col-xl-3 teacher-card-wrapper" data-lang="en">
+                    <article class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden text-center teacher-card">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80"
+                                 class="card-img-top" alt="Олена Ковальчук" style="height: 260px; object-fit: cover;">
+                            <span class="badge bg-success position-absolute top-0 end-0 m-3 rounded-pill px-3 py-2">
+                                <i class="fa-solid fa-star me-1 text-warning"></i> 4.99
+                            </span>
+                            <span class="badge bg-secondary position-absolute bottom-0 start-0 m-3 rounded-pill px-3 py-1">Головний методист</span>
+                        </div>
+                        <div class="card-body p-4 d-flex flex-column">
+                            <h2 class="h5 fw-bold mb-1">Олена Ковальчук</h2>
+                            <p class="text-muted small mb-2"><i class="fa-solid fa-location-dot me-1 text-primary"></i>Київ, Україна</p>
+                            <div class="d-flex flex-wrap justify-content-center gap-1 mb-3">
+                                <span class="certificate-badge">CELTA Pass A</span>
+                                <span class="certificate-badge">TKT 1-3</span>
+                            </div>
+                            <p class="text-secondary small mb-3 flex-grow-1">
+                                10 років досвіду. Автор навчальних програм Polyglot Academy, експерт зі швидкого подолання мовного бар'єру у дорослих.
+                            </p>
+                            <div class="border-top pt-3 mt-auto d-flex gap-2">
+                                <button type="button" class="btn btn-outline-secondary btn-sm w-50"
+                                        onclick="showTeacherBio('Олена Ковальчук', 'Україна', '10 років', 'Cambridge CELTA (Grade A), TKT Modules 1-3', 'Провідний методист академії. Розробила систему адаптивного мікронавчання, що скорочує час засвоєння граматики вдвічі. Підготувала понад 800 успішних випускників.', 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80')">
+                                    Профіль
+                                </button>
+                                <button type="button" class="btn btn-primary-custom btn-sm w-50" onclick="openTeacherBooking('Олена Ковальчук')">
+                                    Записатися
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Teacher 5 -->
+                <div class="col-md-6 col-lg-4 col-xl-3 teacher-card-wrapper" data-lang="fr native">
+                    <article class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden text-center teacher-card">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80"
+                                 class="card-img-top" alt="Jean-Pierre Dubois" style="height: 260px; object-fit: cover;">
+                            <span class="badge bg-success position-absolute top-0 end-0 m-3 rounded-pill px-3 py-2">
+                                <i class="fa-solid fa-star me-1 text-warning"></i> 4.93
+                            </span>
+                            <span class="badge bg-primary position-absolute bottom-0 start-0 m-3 rounded-pill px-3 py-1">Native Speaker</span>
+                        </div>
+                        <div class="card-body p-4 d-flex flex-column">
+                            <h2 class="h5 fw-bold mb-1">Jean-Pierre Dubois</h2>
+                            <p class="text-muted small mb-2"><i class="fa-solid fa-location-dot me-1 text-primary"></i>Ліон, Франція</p>
+                            <div class="d-flex flex-wrap justify-content-center gap-1 mb-3">
+                                <span class="certificate-badge">DAEFLE</span>
+                                <span class="certificate-badge">Sorbonne Litt.</span>
+                            </div>
+                            <p class="text-secondary small mb-3 flex-grow-1">
+                                7 років досвіду. Постановка автентичного паризького прононсу, розмовні тренінги та підготовка до DELF/DALF.
+                            </p>
+                            <div class="border-top pt-3 mt-auto d-flex gap-2">
+                                <button type="button" class="btn btn-outline-secondary btn-sm w-50"
+                                        onclick="showTeacherBio('Jean-Pierre Dubois', 'Франція (Native)', '7 років', 'DAEFLE (Alliance Française), Sorbonne', 'Жан-П\'єр закохує у французьку культуру, кулінарію та літературу. Проводить заняття виключно французькою з повним зануренням у мовне середовище.', 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80')">
+                                    Профіль
+                                </button>
+                                <button type="button" class="btn btn-primary-custom btn-sm w-50" onclick="openTeacherBooking('Jean-Pierre Dubois')">
+                                    Записатися
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Teacher 6 -->
+                <div class="col-md-6 col-lg-4 col-xl-3 teacher-card-wrapper" data-lang="pl native">
+                    <article class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden text-center teacher-card">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80"
+                                 class="card-img-top" alt="Agnieszka Nowak" style="height: 260px; object-fit: cover;">
+                            <span class="badge bg-success position-absolute top-0 end-0 m-3 rounded-pill px-3 py-2">
+                                <i class="fa-solid fa-star me-1 text-warning"></i> 4.96
+                            </span>
+                            <span class="badge bg-dark position-absolute bottom-0 start-0 m-3 rounded-pill px-3 py-1">Native Speaker</span>
+                        </div>
+                        <div class="card-body p-4 d-flex flex-column">
+                            <h2 class="h5 fw-bold mb-1">Agnieszka Nowak</h2>
+                            <p class="text-muted small mb-2"><i class="fa-solid fa-location-dot me-1 text-primary"></i>Варшава, Польща</p>
+                            <div class="d-flex flex-wrap justify-content-center gap-1 mb-3">
+                                <span class="certificate-badge">Polski C2 JPJO</span>
+                                <span class="certificate-badge">Uniw. Warszawski</span>
+                            </div>
+                            <p class="text-secondary small mb-3 flex-grow-1">
+                                6 років викладання. Експерт із підготовки до співбесіди на Карту Поляка та сертифікаційних іспитів рівня B1-C1.
+                            </p>
+                            <div class="border-top pt-3 mt-auto d-flex gap-2">
+                                <button type="button" class="btn btn-outline-secondary btn-sm w-50"
+                                        onclick="showTeacherBio('Agnieszka Nowak', 'Польща (Native)', '6 років', 'Uniwersytet Warszawski, Glottodydaktyka', 'Агнешка допомогла понад 300 студентам отримати Карту Поляка з першої спроби. Особливу увагу приділяє історії, звичаям та легким аналогіям між українською та польською мовами.', 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80')">
+                                    Профіль
+                                </button>
+                                <button type="button" class="btn btn-primary-custom btn-sm w-50" onclick="openTeacherBooking('Agnieszka Nowak')">
+                                    Записатися
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Teacher 7 -->
+                <div class="col-md-6 col-lg-4 col-xl-3 teacher-card-wrapper" data-lang="en native">
+                    <article class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden text-center teacher-card">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80"
+                                 class="card-img-top" alt="David Miller" style="height: 260px; object-fit: cover;">
+                            <span class="badge bg-success position-absolute top-0 end-0 m-3 rounded-pill px-3 py-2">
+                                <i class="fa-solid fa-star me-1 text-warning"></i> 4.94
+                            </span>
+                            <span class="badge bg-primary position-absolute bottom-0 start-0 m-3 rounded-pill px-3 py-1">Native Speaker</span>
+                        </div>
+                        <div class="card-body p-4 d-flex flex-column">
+                            <h2 class="h5 fw-bold mb-1">David Miller</h2>
+                            <p class="text-muted small mb-2"><i class="fa-solid fa-location-dot me-1 text-primary"></i>Чикаго, США</p>
+                            <div class="d-flex flex-wrap justify-content-center gap-1 mb-3">
+                                <span class="certificate-badge">TESOL USA</span>
+                                <span class="certificate-badge">TOEFL Prep</span>
+                            </div>
+                            <p class="text-secondary small mb-3 flex-grow-1">
+                                5 років досвіду. Американська англійська, сленг, ідіоми, підготовка IT-спеціалістів до щоденних standup-ів та демо.
+                            </p>
+                            <div class="border-top pt-3 mt-auto d-flex gap-2">
+                                <button type="button" class="btn btn-outline-secondary btn-sm w-50"
+                                        onclick="showTeacherBio('David Miller', 'США (Native)', '5 років', 'TESOL International Association', 'Девід працював технічним копірайтером у Кремнієвій долині. Допомагає розробникам та менеджерам вільно спілкуватися з клієнтами зі Сполучених Штатів.', 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80')">
+                                    Профіль
+                                </button>
+                                <button type="button" class="btn btn-primary-custom btn-sm w-50" onclick="openTeacherBooking('David Miller')">
+                                    Записатися
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Teacher 8 -->
+                <div class="col-md-6 col-lg-4 col-xl-3 teacher-card-wrapper" data-lang="de">
+                    <article class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden text-center teacher-card">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=600&q=80"
+                                 class="card-img-top" alt="Тетяна Мороз" style="height: 260px; object-fit: cover;">
+                            <span class="badge bg-success position-absolute top-0 end-0 m-3 rounded-pill px-3 py-2">
+                                <i class="fa-solid fa-star me-1 text-warning"></i> 4.98
+                            </span>
+                            <span class="badge bg-warning text-dark position-absolute bottom-0 start-0 m-3 rounded-pill px-3 py-1">Німецька A1-B2</span>
+                        </div>
+                        <div class="card-body p-4 d-flex flex-column">
+                            <h2 class="h5 fw-bold mb-1">Тетяна Мороз</h2>
+                            <p class="text-muted small mb-2"><i class="fa-solid fa-location-dot me-1 text-primary"></i>Львів, Україна</p>
+                            <div class="d-flex flex-wrap justify-content-center gap-1 mb-3">
+                                <span class="certificate-badge">Goethe C2</span>
+                                <span class="certificate-badge">ÖSD Prüferin</span>
+                            </div>
+                            <p class="text-secondary small mb-3 flex-grow-1">
+                                7 років досвіду. Майстерний педагог, що робить німецьку граматику простою та зрозумілою навіть для absolute beginners.
+                            </p>
+                            <div class="border-top pt-3 mt-auto d-flex gap-2">
+                                <button type="button" class="btn btn-outline-secondary btn-sm w-50"
+                                        onclick="showTeacherBio('Тетяна Мороз', 'Україна', '7 років', 'Goethe-Zertifikat C2: GDS, ЛНУ ім. І. Франка', 'Тетяна стажувалася у Відні та Берліні. Її заняття насичені інтерактивними іграми, картками та практичними життєвими діалогами.', 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=600&q=80')">
+                                    Профіль
+                                </button>
+                                <button type="button" class="btn btn-primary-custom btn-sm w-50" onclick="openTeacherBooking('Тетяна Мороз')">
+                                    Записатися
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Quality Standards Section -->
+            <section class="mt-5 pt-5">
+                <div class="section-title-wrapper text-center">
+                    <span class="section-subtitle">Наші стандарти</span>
+                    <h2 class="h2 fw-bold">Як ми обираємо викладачів</h2>
+                    <p class="text-muted">Лише 1 з 15 кандидатів проходить наш суворий 4-етапний відбір</p>
+                </div>
+
+                <div class="row g-4 text-center">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="p-4 bg-light rounded-4 h-100 shadow-sm border border-light">
+                            <div class="stat-num text-primary mb-2">01</div>
+                            <h3 class="h5 fw-bold mb-2">Перевірка дипломів</h3>
+                            <p class="text-secondary small mb-0">Обов'язкова наявність вищої філологічної освіти та міжнародних кембриджських або ґетевських сертифікатів.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="p-4 bg-light rounded-4 h-100 shadow-sm border border-light">
+                            <div class="stat-num text-primary mb-2">02</div>
+                            <h3 class="h5 fw-bold mb-2">Пробний урок</h3>
+                            <p class="text-secondary small mb-0">Оцінка комунікативних навичок, харизми та вміння 80% уроку говорити мовою, що вивчається.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="p-4 bg-light rounded-4 h-100 shadow-sm border border-light">
+                            <div class="stat-num text-primary mb-2">03</div>
+                            <h3 class="h5 fw-bold mb-2">Навчання методиці</h3>
+                            <p class="text-secondary small mb-0">Двотижневий інтенсив із внутрішніх стандартів академії та сучасних EdTech інструментів.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="p-4 bg-light rounded-4 h-100 shadow-sm border border-light">
+                            <div class="stat-num text-primary mb-2">04</div>
+                            <h3 class="h5 fw-bold mb-2">Контроль якості</h3>
+                            <p class="text-secondary small mb-0">Щомісячний моніторинг відгуків студентів та регулярне відвідування уроків старшим методистом.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Teacher Bio Modal -->
+    <div class="modal fade" id="teacherBioModal" tabindex="-1" aria-labelledby="bioModalName" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 border-0 shadow">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold" id="bioModalName">Профіль викладача</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрити"></button>
+                </div>
+                <div class="modal-body p-4 text-center">
+                    <img id="bioModalImg" src="" alt="Викладач" class="rounded-circle shadow mb-3" style="width: 120px; height: 120px; object-fit: cover;">
+                    <h4 class="fw-bold mb-1" id="bioModalTeacherName"></h4>
+                    <p class="text-muted small mb-2" id="bioModalCountry"></p>
+                    <div class="d-flex justify-content-center gap-2 mb-3">
+                        <span class="badge bg-primary rounded-pill px-3 py-1" id="bioModalExp"></span>
+                        <span class="badge bg-success rounded-pill px-3 py-1" id="bioModalCerts"></span>
+                    </div>
+                    <p class="text-secondary text-start small mb-4" id="bioModalText"></p>
+                    <button type="button" class="btn btn-primary-custom w-100" id="bioModalBookBtn" onclick="proceedToBookingFromBio()">
+                        Записатися на пробний урок з цим викладачем
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking Modal -->
+    <div class="modal fade" id="teacherBookModal" tabindex="-1" aria-labelledby="bookModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 border-0 shadow">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold" id="bookModalTitle">Запис до викладача</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрити"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="teacherBookForm" onsubmit="handleTeacherBookSubmit(event)">
+                        <div class="mb-3">
+                            <label for="bookTeacherName" class="form-label small fw-semibold">Викладач</label>
+                            <input type="text" class="form-control" id="bookTeacherName" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="studentName" class="form-label small fw-semibold">Ваше ім'я <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="studentName" placeholder="Іван Петренко" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="studentPhone" class="form-label small fw-semibold">Номер телефону <span class="text-danger">*</span></label>
+                            <input type="tel" class="form-control" id="studentPhone" placeholder="+380 (50) 987-65-43" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="preferredDay" class="form-label small fw-semibold">Зручний час для уроку</label>
+                            <select class="form-select" id="preferredDay">
+                                <option value="morning">Ранок (09:00 - 12:00)</option>
+                                <option value="afternoon">День (12:00 - 17:00)</option>
+                                <option value="evening" selected>Вечір (17:00 - 21:00)</option>
+                                <option value="weekend">Вихідні дні</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary-custom w-100 py-2">
+                            Забронювати консультацію
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5 mt-5">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-4">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <i class="fa-solid fa-graduation-cap text-primary fs-3"></i>
+                        <span class="h4 fw-bold mb-0 text-white">Polyglot Academy</span>
+                    </div>
+                    <p class="text-secondary small mb-3">
+                        Сучасна онлайн-школа вивчення іноземних мов з носіями мови та інтерактивними методиками.
+                    </p>
+                    <div class="d-flex gap-3 text-secondary">
+                        <a href="#" class="text-secondary" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="text-secondary" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="text-secondary" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                        <a href="#" class="text-secondary" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h6 class="fw-bold mb-3 text-light">Навігація</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="index.html" class="text-secondary text-decoration-none">Головна</a></li>
+                        <li class="mb-2"><a href="courses.html" class="text-secondary text-decoration-none">Курси</a></li>
+                        <li class="mb-2"><a href="teachers.html" class="text-secondary text-decoration-none">Викладачі</a></li>
+                        <li class="mb-2"><a href="reviews.html" class="text-secondary text-decoration-none">Відгуки</a></li>
+                        <li class="mb-2"><a href="index.html#pricing" class="text-secondary text-decoration-none">Тарифи</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <h6 class="fw-bold mb-3 text-light">Мовні напрямки</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="courses.html" class="text-secondary text-decoration-none">Англійська онлайн</a></li>
+                        <li class="mb-2"><a href="courses.html" class="text-secondary text-decoration-none">Німецька для початківців</a></li>
+                        <li class="mb-2"><a href="courses.html" class="text-secondary text-decoration-none">Іспанська розмовна</a></li>
+                        <li class="mb-2"><a href="courses.html" class="text-secondary text-decoration-none">Підготовка до IELTS</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="fw-bold mb-3 text-light">Контакти</h6>
+                    <ul class="list-unstyled small text-secondary">
+                        <li class="mb-2"><i class="fa-solid fa-phone me-2"></i>+380 (44) 123-45-67</li>
+                        <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i>hello@polyglot.ua</li>
+                        <li class="mb-2"><i class="fa-solid fa-location-dot me-2"></i>м. Київ, вул. Освіти, 10</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-top border-secondary pt-4 mt-4 text-center text-secondary small">
+                © 2026 Polyglot Academy. Лабораторна робота №2 · Група І-23. Всі права захищено.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let currentSelectedTeacher = '';
+
+        function filterTeachers(lang, btn) {
+            document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const teachers = document.querySelectorAll('.teacher-card-wrapper');
+            teachers.forEach(t => {
+                const langs = t.getAttribute('data-lang');
+                if (lang === 'all' || langs.includes(lang)) {
+                    t.style.display = 'block';
+                } else {
+                    t.style.display = 'none';
+                }
+            });
+        }
+
+        function showTeacherBio(name, country, exp, certs, text, imgUrl) {
+            currentSelectedTeacher = name;
+            document.getElementById('bioModalTeacherName').textContent = name;
+            document.getElementById('bioModalCountry').textContent = 'Країна: ' + country;
+            document.getElementById('bioModalExp').textContent = 'Досвід: ' + exp;
+            document.getElementById('bioModalCerts').textContent = certs;
+            document.getElementById('bioModalText').textContent = text;
+            document.getElementById('bioModalImg').src = imgUrl;
+
+            const modal = new bootstrap.Modal(document.getElementById('teacherBioModal'));
+            modal.show();
+        }
+
+        function proceedToBookingFromBio() {
+            const bioModalEl = document.getElementById('teacherBioModal');
+            const bioModalInstance = bootstrap.Modal.getInstance(bioModalEl);
+            if (bioModalInstance) bioModalInstance.hide();
+
+            openTeacherBooking(currentSelectedTeacher);
+        }
+
+        function openTeacherBooking(teacherName) {
+            document.getElementById('bookTeacherName').value = teacherName;
+            const modal = new bootstrap.Modal(document.getElementById('teacherBookModal'));
+            modal.show();
+        }
+
+        function handleTeacherBookSubmit(e) {
+            e.preventDefault();
+            const teacher = document.getElementById('bookTeacherName').value;
+            const name = document.getElementById('studentName').value;
+
+            const modalEl = document.getElementById('teacherBookModal');
+            const modalInstance = bootstrap.Modal.getInstance(modalEl);
+            if (modalInstance) modalInstance.hide();
+
+            const alertBox = document.createElement('div');
+            alertBox.className = 'alert alert-success alert-dismissible fade show position-fixed bottom-0 end-0 m-4 shadow-lg';
+            alertBox.style.zIndex = '9999';
+            alertBox.setAttribute('role', 'status');
+
+            alertBox.innerHTML = `
+                <strong>Чудово, ${name}!</strong> Вашу заявку до викладача <em>${teacher}</em> зафіксовано. Ми зв'яжемося з вами для підтвердження часу.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Закрити"></button>
+            `;
+            document.body.appendChild(alertBox);
+
+            setTimeout(() => {
+                alertBox.remove();
+            }, 5000);
+            document.getElementById('teacherBookForm').reset();
+        }
+    </script>
+</body>
+</html>

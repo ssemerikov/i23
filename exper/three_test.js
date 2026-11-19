@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     directionalLight.position.set(2, 3, 4);
     scene.add(directionalLight);
 
-    const pathmodel = "/assets/alien_11.obj";
+    const pathmodel = "../assets/alien_11.obj";
     new OBJLoader().load(
         pathmodel,
         (model) => {

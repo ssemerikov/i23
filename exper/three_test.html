@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8">
+    <title>Тестування three.js</title>
+    <style>
+      body { margin: 0; }
+      .video-container {
+        position: relative;
+        width: 400px;
+        height: 300px;
+      }
+      #myVideo,
+      #myCanvas {
+        position: absolute;
+        inset: 0;
+      }
+      #myCanvas {
+        z-index: 1;
+        pointer-events: none;
+      }
+      #cameraStatus {
+        margin: 0.5rem 0;
+      }
+    </style>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.187.0/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.187.0/examples/jsm/"
+            }
+        }
+    </script>
+    <script type="module" src="./three_test.js"></script>
+  </head>
+  <body>
+    <p>Тестування three.js 1</p>
+    <div class="video-container">
+      <canvas id="myCanvas" width="400" height="300"></canvas>
+      <video id="myVideo" width="400" height="300" autoplay muted playsinline>
+        <!--<source src="/assets/Pickard_Vacation.mp4" type="video/mp4">-->
+      </video>
+    </div>
+    <p id="cameraStatus" role="status">Запит доступу до камери…</p>
+    <p id="modelStatus" role="status">Завантаження 3D-моделі…</p>
+    <p>Тестування three.js 2</p>
+  </body>
+</html>

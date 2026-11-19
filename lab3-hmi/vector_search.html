@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пошук і візуалізація векторів (PCA) | Лабораторна робота №3 (HMI)</title>
+    <link rel="stylesheet" href="../bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .loading-overlay { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85); z-index: 1060; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; color: #fff; }
+        .loading-overlay.hidden { display: none; }
+        .loading-text { font-size: 1.25rem; font-weight: 600; }
+        .loading-sub { color: #cbd5e1 !important; font-size: 0.9rem; }
+        .spinner-border { width: 3.5rem; height: 3.5rem; }
+        .selected-chips { min-height: 2.5rem; border: 1px dashed #ced4da; border-radius: 0.375rem; padding: 0.5rem; }
+        .selected-chip { font-size: 0.9rem; }
+        .plot-wrap { overflow: auto; }
+        .plot-wrap svg { width: 100%; height: auto; max-width: 760px; }
+    </style>
+</head>
+<body>
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner-border text-light" role="status">
+            <span class="visually-hidden">Завантаження…</span>
+        </div>
+        <div class="loading-text">Завантаження моделі…</div>
+        <div class="loading-sub">Це може зайняти кілька хвилин. Будь ласка, зачекайте.</div>
+        <div id="loadingError" class="text-danger text-center mt-2" style="max-width: 32rem; display:none;"></div>
+        <button id="retryBtn" class="btn btn-outline-light btn-sm mt-2" style="display:none;">Спробувати ще раз</button>
+    </div>
+
+    <div class="container py-4">
+        <header class="mb-4">
+            <h1 class="h3">Пошук і візуалізація векторів слів (PCA 2D)</h1>
+            <p class="text-muted mb-0">Лабораторна робота №3 (HMI) · word2vec → JSONL · група І-23</p>
+        </header>
+
+        <section class="card mb-4">
+            <div class="card-body">
+                <h2 class="h5 card-title">1. Стан моделі</h2>
+                <p id="status" class="status-text mb-2" aria-live="polite">Очікування завантаження…</p>
+                <p id="fileInfo" class="mb-0 text-muted small"></p>
+                <table class="table table-sm results-table mt-3 mb-0">
+                    <tbody>
+                        <tr><th scope="row">Кількість слів</th><td id="resWords" class="value">—</td></tr>
+                        <tr><th scope="row">Розмірність вектора</th><td id="resDim" class="value">—</td></tr>
+                        <tr><th scope="row">Розмір файлу</th><td id="resFileSize" class="value">—</td></tr>
+                        <tr><th scope="row">Загальний час завантаження</th><td id="resTotalTime" class="value">—</td></tr>
+                        <tr><th scope="row">Швидкість обробки</th><td id="resThroughput" class="value">—</td></tr>
+                        <tr><th scope="row">Обчислений обсяг структури</th><td id="resComputed" class="value">—</td></tr>
+                        <tr><th scope="row">Приріст пам'яті (heap)</th><td id="resHeapDelta" class="value">—</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="card mb-4">
+            <div class="card-body">
+                <h2 class="h5 card-title">2. Пошук вектора за словом</h2>
+                <p class="text-muted">Введіть слово або його частину і натисніть «Знайти». Показуються до 50 відповідностей.</p>
+                <div class="input-group mb-3">
+                    <input type="text" id="searchInput" class="form-control" placeholder="Наприклад: король, париж, україна…" autocomplete="off">
+                    <button class="btn btn-primary" id="searchBtn" type="button">Знайти</button>
+                </div>
+                <p id="searchInfo" class="text-muted small mb-2"></p>
+                <ul id="searchResults" class="list-group" style="max-height: 320px; overflow: auto;"></ul>
+            </div>
+        </section>
+
+        <section class="card mb-4">
+            <div class="card-body">
+                <h2 class="h5 card-title">3. Обрані вектори для візуалізації</h2>
+                <p class="text-muted">Оберіть від 2 до 20 слів. Для обраних виконується PCA і будується 2D-проєкція.</p>
+                <div id="selectedChips" class="selected-chips mb-2" aria-live="polite"></div>
+                <p class="mb-2">Обрано: <span id="selectedCount" class="fw-bold">0</span> / 20</p>
+                <div class="d-flex gap-2">
+                    <button id="visualizeBtn" class="btn btn-success" disabled>Візуалізувати (PCA 2D)</button>
+                    <button id="clearBtn" class="btn btn-outline-secondary">Очистити список</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="card mb-4">
+            <div class="card-body">
+                <h2 class="h5 card-title">4. Візуалізація (PCA 2D)</h2>
+                <p id="plotHint" class="text-muted">Оберіть від 2 до 20 слів і натисніть «Візуалізувати».</p>
+                <div id="plotWrap" class="plot-wrap"></div>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="vector_search.js"></script>
+</body>
+</html>

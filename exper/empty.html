@@ -1,0 +1,167 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Canvas Drawing</title>
+        <style>
+            canvas {
+                border: 1px solid #333;
+                display: block;
+                margin-top: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            let canvas = null;
+            let ctx = null;
+            let points = [];
+
+            function setupCanvasEvents(targetCanvas) {
+                /*
+                targetCanvas.addEventListener('mousemove', function(e) {
+                    if (!ctx) return;
+
+                    const rect = targetCanvas.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+
+                    ctx.beginPath();
+                    ctx.arc(x, y, 10, 0, Math.PI * 2);
+                    ctx.fillStyle = 'red';
+                    ctx.fill();
+                });
+                */
+
+                targetCanvas.addEventListener('click', function(e) {
+                    if (!ctx) return;
+
+                    const rect = targetCanvas.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+
+                    // Зберігаємо координати відносно самого canvas
+                    points.push({ x, y });
+
+                    // Поєднуємо дві останні точки лінією
+                    if (points.length > 1) {
+                        const prev = points[points.length - 2];
+                        const curr = points[points.length - 1];
+
+                        ctx.beginPath();
+                        ctx.moveTo(prev.x, prev.y);
+                        ctx.lineTo(curr.x, curr.y);
+                        ctx.strokeStyle = 'blue';
+                        ctx.lineWidth = 2;
+                        ctx.stroke();
+                    }
+                });
+            }
+
+            function newhtml() {
+                const p = document.createElement('p');
+                p.textContent = "Hello, World!";
+                document.body.appendChild(p);
+
+                canvas = document.createElement('canvas');
+                canvas.width = 600;
+                canvas.height = 600;
+                document.body.appendChild(canvas);
+
+                ctx = canvas.getContext('2d');
+                
+                // Прив'язуємо події лише після створення canvas
+                setupCanvasEvents(canvas);
+
+                const button = document.createElement('button');
+                button.textContent = "Save!";
+                button.addEventListener('click', function() {
+                    /*
+                    const dataURL = canvas.toDataURL('image/png');
+                    const link = document.createElement('a');
+                    link.href = dataURL;
+                    link.download = 'canvas_image.png';
+                    link.click();
+                    */
+                    //const dataURL = canvas.toDataURL('image/png');
+                    /*
+                    dataURL = points.map(point => `${point.x},${point.y}`).join(';'); // application/text
+                    const link = document.createElement('a');
+                    link.href = dataURL;
+                    link.download = 'points.txt';
+                    link.click();
+                    console.log("Saved points:", dataURL);
+                    */
+                                                                                                                                
+                    const jsonString = JSON.stringify(points, null, 2);
+                    const blob = new Blob([jsonString], { type: 'application/json' });
+                    const url = URL.createObjectURL(blob);
+
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.download = 'points.json';
+                    link.click();
+
+                    URL.revokeObjectURL(url);                   
+                });
+                document.body.appendChild(button);
+
+                const button2 = document.createElement('button');
+                button2.textContent = "Clear!";
+                button2.addEventListener('click', function() {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    points = [];
+                });
+                document.body.appendChild(button2);
+
+                const button3 = document.createElement('button');
+                button3.textContent = "Load!";
+                button3.addEventListener('click', function() {
+                    // Implementation for loading points
+                    // File open dioalog and reading the file content
+                    // Прихований input для вибору файлу
+                    const fileInput = document.createElement('input');
+                    fileInput.type = 'file';
+                    fileInput.accept = '.json,application/json';
+                    fileInput.style.display = 'none';
+
+                    fileInput.addEventListener('change', function(e) {
+                        const file = e.target.files[0];
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            const data = JSON.parse(e.target.result);
+                            points = data;
+                            //redraw();
+                            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                            if (points.length > 1) {
+                                ctx.beginPath();
+                                ctx.moveTo(points[0].x, points[0].y);
+                                for (let i = 1; i < points.length; i++) {
+                                    ctx.lineTo(points[i].x, points[i].y);
+                                }
+                                ctx.strokeStyle = 'blue';
+                                ctx.lineWidth = 2;
+                                ctx.stroke();
+                            }
+                        };
+                        reader.readAsText(file);
+                    });
+
+                    document.body.appendChild(fileInput);
+                    fileInput.click();
+                });
+                document.body.appendChild(button3);
+            }
+
+
+            const button = document.createElement('button');
+            button.textContent = "Click me!";
+            button.addEventListener('click', function() {
+                button.remove();
+                newhtml();
+            });
+            document.body.appendChild(button);
+        </script>
+    </body>
+</html>

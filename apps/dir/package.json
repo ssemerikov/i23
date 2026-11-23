@@ -1,0 +1,13 @@
+{
+  "name": "webdir",
+  "version": "1.0.0",
+  "description": "2ий серверний додаток на Node.js",
+  "main": "ls.js",
+  "scripts": {
+    "start": "node ls.js"
+  },
+  "keywords": [],
+  "author": "Serhiy O. Semerikov",
+  "license": "ISC",
+  "type": "commonjs"
+}

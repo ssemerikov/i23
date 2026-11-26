@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Автокорекція тексту | Лабораторна робота №5 (HMI)</title>
+    <!-- Локальний Bootstrap без залежності від зовнішніх CDN -->
+    <link rel="stylesheet" href="../bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="container py-4">
+        <h1 class="h3 mb-2">Автокорекція тексту</h1>
+        <p id="status" class="text-muted small mb-3">Завантаження словника...</p>
+
+        <!-- Поле для введення тексту користувачем -->
+        <label for="textInput" class="form-label">Введіть текст для перевірки:</label>
+        <textarea id="textInput" rows="4" class="form-control mb-3"
+            placeholder="Наприклад: Hllo, I have no mony and I am happpy."></textarea>
+
+        <button id="correctBtn" class="btn btn-primary mb-3" disabled>
+            Виправити текст
+        </button>
+
+        <!-- Результат коригування та перелік замін -->
+        <div id="result" class="result-box p-3 rounded mb-2"></div>
+        <p id="changes" class="text-muted small mb-0"></p>
+    </main>
+
+    <script src="code.js"></script>
+</body>
+</html>

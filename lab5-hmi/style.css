@@ -1,0 +1,20 @@
+/* Мінімальні стилі сторінки автокорекції (ЛР №5 HMI) */
+
+.container {
+    max-width: 720px;
+}
+
+/* Блок із виправленим текстом і збереженням переносів рядків */
+.result-box {
+    min-height: 3.5rem;
+    border: 1px solid #dee2e6;
+    background-color: #f8f9fa;
+    white-space: pre-wrap;
+}
+
+/* Підсвічування виправлених слів */
+.result-box mark {
+    background-color: #d1e7dd;
+    padding: 0 0.2rem;
+    border-radius: 0.2rem;
+}
